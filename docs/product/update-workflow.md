@@ -48,11 +48,11 @@ node scripts/run-today-pipeline.js
 
 ## 后续自动化方向
 
-- 云端推荐使用 GitHub Pages + GitHub Actions，每天北京时间 08:00 自动运行 `.github/workflows/daily-pages.yml`。
+- 云端推荐使用 GitHub Pages + GitHub Actions，每天北京时间 08:00 自动运行 `.github/workflows/daily-pages.yml`。工作流会先运行 `scripts/collect-candidates.js` 自动生成候选新闻，再运行发布流水线。
 - 增加人工审核开关，审核通过后才覆盖 `index.html`。
 - 记录每条新闻的来源时间、抓取时间和编辑时间。
 - 为微信推送增加固定模板，便于直接复制或接入自动发送工具。
 
 ## 当前自动化边界
 
-现在已经具备从候选新闻到正式页面的一键构建能力。真实抓取仍建议单独接入，原因是不同平台的热榜接口、反爬策略和授权条件不同，不能把它们混进发布脚本里。后续可以为每个平台增加独立抓取适配器，统一输出到 `data/candidates/YYYY-MM-DD.json`。
+现在已经具备从公开 RSS/API 到候选新闻、再到正式页面的一键构建能力。微博、抖音、快手等平台限制更多，后续建议为每个平台增加独立抓取适配器，统一输出到 `data/candidates/YYYY-MM-DD.json`。

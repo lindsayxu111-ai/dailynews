@@ -54,3 +54,19 @@ node scripts/run-daily-pipeline.js YYYY-MM-DD
 ```bash
 node scripts/run-today-pipeline.js
 ```
+
+## 自动采集
+
+云端会先运行：
+
+```bash
+node scripts/collect-candidates.js YYYY-MM-DD
+```
+
+如果当天候选文件已经存在，脚本会跳过自动采集，优先使用人工准备的文件。如果不存在，会读取：
+
+```text
+config/source-feeds.json
+```
+
+并从公开 RSS/API 源自动生成候选文件。

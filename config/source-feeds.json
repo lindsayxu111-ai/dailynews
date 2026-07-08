@@ -1,0 +1,118 @@
+{
+  "weather": {
+    "label": "今日天气参考",
+    "latitude": 39.9042,
+    "longitude": 116.4074,
+    "timezone": "Asia/Shanghai"
+  },
+  "feeds": [
+    {
+      "section": "official",
+      "name": "Google News 国内官方",
+      "url": "https://news.google.com/rss/search?q=%E4%B8%AD%E5%9B%BD%20(%E6%96%B0%E5%8D%8E%E7%A4%BE%20OR%20%E5%A4%AE%E8%A7%86%20OR%20%E5%9B%BD%E5%8A%A1%E9%99%A2)&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "official"
+    },
+    {
+      "section": "official",
+      "name": "China Daily China",
+      "url": "https://www.chinadaily.com.cn/rss/china_rss.xml",
+      "type": "official"
+    },
+    {
+      "section": "world",
+      "name": "China Daily World",
+      "url": "https://www.chinadaily.com.cn/rss/world_rss.xml",
+      "type": "media"
+    },
+    {
+      "section": "world",
+      "name": "Google News 国际",
+      "url": "https://news.google.com/rss/search?q=%E5%9B%BD%E9%99%85%20OR%20%E5%85%A8%E7%90%83%20OR%20%E5%9C%B0%E7%BC%98&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "media"
+    },
+    {
+      "section": "world",
+      "name": "The Guardian World",
+      "url": "https://www.theguardian.com/world/rss",
+      "type": "media"
+    },
+    {
+      "section": "world",
+      "name": "BBC World",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "type": "media"
+    },
+    {
+      "section": "buzz",
+      "name": "China Daily Culture",
+      "url": "https://www.chinadaily.com.cn/rss/culture_rss.xml",
+      "type": "platform"
+    },
+    {
+      "section": "buzz",
+      "name": "Google News 全网热议",
+      "url": "https://news.google.com/rss/search?q=%E7%83%AD%E6%90%9C%20OR%20%E7%83%AD%E8%AE%AE%20OR%20%E7%BD%91%E5%8F%8B%E7%83%AD%E8%AE%AE&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "platform"
+    },
+    {
+      "section": "buzz",
+      "name": "Google News 今日热点",
+      "url": "https://news.google.com/rss/search?q=%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9%20OR%20%E7%A4%BE%E4%BA%A4%E5%B9%B3%E5%8F%B0&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "platform"
+    },
+    {
+      "section": "tech",
+      "name": "IT之家",
+      "url": "https://www.ithome.com/rss/",
+      "type": "media"
+    },
+    {
+      "section": "tech",
+      "name": "Google News 科技",
+      "url": "https://news.google.com/rss/search?q=AI%20OR%20%E8%8A%AF%E7%89%87%20OR%20%E6%96%B0%E8%83%BD%E6%BA%90%E6%B1%BD%E8%BD%A6%20OR%20%E7%A7%91%E6%8A%80&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "media"
+    },
+    {
+      "section": "tech",
+      "name": "The Guardian Technology",
+      "url": "https://www.theguardian.com/technology/rss",
+      "type": "media"
+    },
+    {
+      "section": "tech",
+      "name": "BBC Technology",
+      "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "type": "media"
+    },
+    {
+      "section": "finance",
+      "name": "MarketWatch Top Stories",
+      "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+      "type": "market"
+    },
+    {
+      "section": "finance",
+      "name": "Dow Jones Markets",
+      "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+      "type": "market"
+    },
+    {
+      "section": "finance",
+      "name": "Google News 财经",
+      "url": "https://news.google.com/rss/search?q=A%E8%82%A1%20OR%20%E6%B8%AF%E8%82%A1%20OR%20%E7%BE%8E%E8%82%A1%20OR%20%E6%B2%B9%E4%BB%B7%20OR%20%E4%BA%BA%E6%B0%91%E5%B8%81&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "market"
+    },
+    {
+      "section": "finance",
+      "name": "The Guardian Business",
+      "url": "https://www.theguardian.com/business/rss",
+      "type": "market"
+    },
+    {
+      "section": "finance",
+      "name": "BBC Business",
+      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+      "type": "market"
+    }
+  ]
+}

@@ -6,6 +6,7 @@
 
 - `.github/workflows/daily-pages.yml`：每天北京时间 08:00 自动构建并发布。
 - `scripts/prepare-pages-artifact.js`：只把公开网页文件打包到 `_site`，不发布脚本、候选新闻和日志。
+- `scripts/collect-candidates.js`：云端构建时自动采集候选新闻和天气。
 - `scripts/run-daily-pipeline.js`：云端构建时生成当天日报。
 
 ## 发布前需要做的事
@@ -23,7 +24,9 @@
 运行顺序：
 
 ```text
-读取 data/candidates/YYYY-MM-DD.json
+抓取公开 RSS/API 与天气
+        ↓
+生成 data/candidates/YYYY-MM-DD.json
         ↓
 生成 data/daily/YYYY-MM-DD.json
         ↓
@@ -38,13 +41,25 @@
 
 ## 重要边界
 
-当前云端定时发布已经配置好，但每天仍需要有当天候选新闻文件：
+当前云端定时发布已经配置好，并会先尝试自动生成当天候选新闻文件：
 
 ```text
 data/candidates/YYYY-MM-DD.json
 ```
 
-如果当天候选文件不存在，工作流会失败并停止发布，避免用旧内容覆盖网站。下一步要做的是接入真实新闻抓取，让云端在 8 点前自动生成这个候选文件。
+如果这个文件已经存在，采集脚本会直接跳过，使用你手动准备的版本。如果不存在，GitHub Actions 会通过 `config/source-feeds.json` 里的公开 RSS/API 源自动采集。
+
+如果公开源临时不可用，工作流会失败并停止发布，避免用不完整内容覆盖网站。
+
+## 数据源配置
+
+自动采集源在这里维护：
+
+```text
+config/source-feeds.json
+```
+
+第一版使用无需 API key 的公开源，包括 Google News RSS、China Daily、IT之家、MarketWatch、Dow Jones、Guardian、BBC 和 Open-Meteo 天气。微博、抖音、快手等平台限制更多，后续建议作为独立适配器接入。
 
 ## 公开页面范围
 

@@ -44,6 +44,9 @@ jobs:
             echo "PUBLISH_DATE=$(TZ=Asia/Shanghai date +%F)" >> "$GITHUB_ENV"
           fi
 
+      - name: Collect candidates
+        run: node scripts/collect-candidates.js "$PUBLISH_DATE"
+
       - name: Build daily issue
         run: node scripts/run-daily-pipeline.js "$PUBLISH_DATE"
 

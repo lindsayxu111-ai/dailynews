@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>审核后台 | 每日头条</title>
+  <style>
+    :root { --ink: #10233d; --muted: #5e7188; --line: #c9dced; --accent: #2d8fce; --orange: #e47f52; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eef6fc; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0; }
+    .toolbar, .item { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 18px; box-shadow: 0 12px 26px rgba(22, 50, 84, 0.08); }
+    .toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+    h1, h2, p { margin-top: 0; }
+    p { color: var(--muted); }
+    button { border: 0; border-radius: 999px; background: #18365d; color: white; padding: 10px 14px; font: inherit; font-weight: 900; }
+    button.ghost { border: 1px solid var(--line); background: #f3f9ff; color: #1d5f90; }
+    .list { display: grid; gap: 12px; }
+    .meta { color: var(--orange); font-size: 13px; font-weight: 900; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="toolbar">
+      <div>
+        <h1>今日审核</h1>
+        <p>发布前检查标题、摘要、来源、今日必看和微信分享版。当前为静态原型，后续可接入真实后台。</p>
+      </div>
+      <button>发布今日日报</button>
+    </div>
+    <div class="list"><article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-01 · 多源确认</div>
+      <h2>国家科学技术奖励大会等在京召开</h2>
+      <p>习近平颁奖并讲话，科技强国建设成为当天国内主线。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-02 · 多源确认</div>
+      <h2>2025年度国家科学技术奖揭晓</h2>
+      <p>陈立泉、贲德获国家最高科学技术奖，共评出258个项目和11名科技专家。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-03 · 多源确认</div>
+      <h2>习近平对防汛救灾工作作出重要指示</h2>
+      <p>要求全力抢险救援、安置群众，并防范次生灾害。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-04 · 多源确认</div>
+      <h2>甘肃宕昌山体滑坡搜救结束</h2>
+      <p>灾害造成21人遇难、7人轻伤，灾后处置和隐患排查仍受关注。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-05 · 多源确认</div>
+      <h2>民政部发布城乡三级养老服务网络建设指引</h2>
+      <p>县、乡镇、村社三级养老服务体系建设将进一步明确。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-06 · 多源确认</div>
+      <h2>旅游强国相关规划获批</h2>
+      <p>服务供给、消费场景和文旅融合成为后续政策关注点。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-07 · 多源确认</div>
+      <h2>全国暑期文化和旅游消费季启动</h2>
+      <p>将举办超3万场文旅消费活动，并发放超4.5亿元补贴。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-08 · 单源待复核</div>
+      <h2>6月中国PMI改善</h2>
+      <p>相关数据被解读为经济动能有所增强，制造业景气度受到关注。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-09 · 单源待复核</div>
+      <h2>6月中国物流业景气指数继续回升</h2>
+      <p>物流数据改善，反映产业流通和需求端变化。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国内官方新闻 10 条 · official-10 · 多源确认</div>
+      <h2>国家发改委安排5000万元支持湖北灾后恢复</h2>
+      <p>资金用于风雹等灾害后的应急恢复，防灾救灾链条持续推进。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-01 · 多源确认</div>
+      <h2>霍尔木兹海峡局势再升级</h2>
+      <p>美伊紧张升温，美国对伊朗目标发动新一轮打击并恢复石油制裁。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-02 · 多源确认</div>
+      <h2>油价因美伊紧张和霍尔木兹风险上扬</h2>
+      <p>地缘风险继续影响全球能源市场，避险情绪抬头。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-03 · 多源确认</div>
+      <h2>北约峰会在土耳其安卡拉举行</h2>
+      <p>防务开支和军工项目成为焦点，欧洲安全议程继续升温。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-04 · 多源确认</div>
+      <h2>叙利亚大马士革发生爆炸</h2>
+      <p>事发时法国总统马克龙正在访问，地区安全风险再受关注。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-05 · 多源确认</div>
+      <h2>纽约曼哈顿高楼因结构风险疏散</h2>
+      <p>消防部门紧急处置，部分疏散后续解除。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-06 · 多源确认</div>
+      <h2>古巴在联合国抨击美国对古政策</h2>
+      <p>相关辩论继续推进，古巴问题再回到多边场域。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-07 · 多源确认</div>
+      <h2>古巴再次发生全国性大停电</h2>
+      <p>能源供应和基础设施稳定性成为外界关注点。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-08 · 多源确认</div>
+      <h2>俄乌冲突持续，基辅方向遇袭</h2>
+      <p>袭击与反击消息交织，冲突态势仍处高压状态。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-09 · 多源确认</div>
+      <h2>阿根廷逆转埃及晋级八强引发骚乱</h2>
+      <p>赛事结果、判罚争议与球迷冲突叠加发酵。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">国际新闻 10 条 · world-10 · 单源待复核</div>
+      <h2>AI概念股下跌拖累全球市场</h2>
+      <p>科技股波动与地缘风险共同影响市场情绪。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-01 · 多源确认</div>
+      <h2>广西抗洪救援与求助信息</h2>
+      <p>抖音、今日头条、快手持续高热；讨论集中在救援进展、求助专区、解放军和多方力量驰援。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-02 · 多源确认</div>
+      <h2>台风“巴威”逼近与多地防范</h2>
+      <p>台风警戒、浙江迎战、强度变化不断上榜；讨论焦点是路径、影响范围和地方防御。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-03 · 多源确认</div>
+      <h2>甘肃陇南滑坡21人遇难</h2>
+      <p>灾害信息在短视频平台传播；公众关注搜救结束、山区地质灾害预警和灾后安置。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-04 · 单源待复核</div>
+      <h2>广西涉灾谣言与辟谣</h2>
+      <p>“洪水冲下很多尸体”不实等辟谣内容传播较广；讨论集中在灾情真假、信息核验和平台辟谣速度。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-05 · 多源确认</div>
+      <h2>国家最高科技奖揭晓</h2>
+      <p>百度热搜、抖音均有关注；陈立泉、贲德获奖带动科学家、锂电池产业和科技自立讨论。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-06 · 多源确认</div>
+      <h2>世界杯阿根廷对埃及判罚争议</h2>
+      <p>体育话题在热榜和评论区发酵；埃及足协申诉、判罚争议和球迷冲突共同推高热度。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-07 · 单源待复核</div>
+      <h2>中方向日方提出严正交涉</h2>
+      <p>外交与地区安全议题高位上榜；讨论焦点集中在事件背景、措辞强度和后续回应。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-08 · 多源确认</div>
+      <h2>强降雨、雷暴大风和防汛形势</h2>
+      <p>百度热搜和今日头条持续出现相关话题；多地强对流、河流超警和防汛难度形成公共安全关注。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-09 · 多源确认</div>
+      <h2>美伊冲突相关话题再升温</h2>
+      <p>中东局势、油价影响和军事风险成为跨平台关注点；讨论从国际安全延伸到能源价格。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">全网热议 10 条 · buzz-10 · 多源确认</div>
+      <h2>A股市场超3700只个股下跌</h2>
+      <p>财经类讨论在今日头条升温；投资者关注市场情绪、板块轮动和信心修复。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-01 · 单源待复核</div>
+      <h2>消息称 DeepSeek 正在自研 AI 芯片</h2>
+      <p>面向推理场景，意在减少对外部算力方案依赖。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-02 · 单源待复核</div>
+      <h2>前华为“天才少年”李博杰与 DeepSeek 面试争议发酵</h2>
+      <p>话题从面试体验延伸到创业、投资和契约精神。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-03 · 单源待复核</div>
+      <h2>小米汽车 SkyNomad 中文名“小米澎程”曝光</h2>
+      <p>多平台官方账号上线，市场猜测其与小米增程 SUV 有关。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-04 · 单源待复核</div>
+      <h2>雷军回应小米汽车 SkyNomad 上市时间</h2>
+      <p>“快了”的回应继续推高小米汽车新车型关注度。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-05 · 单源待复核</div>
+      <h2>微信员工回应“临时好友功能”热搜</h2>
+      <p>用户对社交边界、隐私便利性和文件收发场景讨论升温。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-06 · 单源待复核</div>
+      <h2>华为乾崑智驾里程数断网后仍滚动引热议</h2>
+      <p>官方称展示数据做了平滑处理，智能驾驶数据透明度受关注。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-07 · 单源待复核</div>
+      <h2>小米调整“小爱同学”组织架构</h2>
+      <p>消息称罗福莉 MiMo 团队负责基础模型能力，端侧 AI 助手继续升温。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-08 · 单源待复核</div>
+      <h2>中国部分 AI 大模型被称比美国便宜 60%-90%</h2>
+      <p>性价比优势推动中国模型在美国企业端应用扩大。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-09 · 单源待复核</div>
+      <h2>威刚预警 Q3 内存、闪存将大幅涨价</h2>
+      <p>内存预计涨20%-30%，闪存预计涨35%-40%，影响多类终端成本。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">科技圈热点新闻 10 条 · tech-10 · 单源待复核</div>
+      <h2>SpaceX 申请部署最多 10 万颗卫星</h2>
+      <p>卫星互联网被视为 AI 时代太空通信底座的重要方向。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-01 · 多源确认</div>
+      <h2>A股市场情绪偏弱</h2>
+      <p>“全市场超3700只个股下跌”进入热榜，关注风险偏好、成交量和后续政策预期能否修复。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-02 · 多源确认</div>
+      <h2>港股科技股显著走强</h2>
+      <p>恒指涨2.99%，恒生科技指数涨4.97%；阿里巴巴涨超12%，互联网龙头估值修复成为重点观察线。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-03 · 多源确认</div>
+      <h2>国际油价快速拉升</h2>
+      <p>WTI涨超6%、布伦特涨近6%，能源股、通胀预期、航空和化工成本都可能受到牵动。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-04 · 多源确认</div>
+      <h2>美股股指期货跳水</h2>
+      <p>纳指期货、道指期货跌超1%，外盘风险偏好转弱，可能影响A股和港股次日开盘情绪。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-05 · 多源确认</div>
+      <h2>美股油气板块盘前普涨</h2>
+      <p>埃克森美孚涨超2%，油价上行推动能源股受益，但也需要警惕需求端和地缘风险反复。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-06 · 多源确认</div>
+      <h2>存储芯片链条回调加剧</h2>
+      <p>美光、闪迪、西部数据、希捷盘前走弱，全球存储三巨头自高点回落超20%，半导体存储进入再定价阶段。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-07 · 多源确认</div>
+      <h2>6月乘用车出口同比大增</h2>
+      <p>乘联分会数据显示，6月乘用车出口同比增长82.3%，新能源车占出口总量56.9%，汽车产业链出海仍是长线变量。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-08 · 多源确认</div>
+      <h2>券商另类子公司加码科创直投</h2>
+      <p>50余家券商另类子公司近三年直投科创企业超200亿元，硬科技、专精特新和耐心资本值得跟踪。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-09 · 多源确认</div>
+      <h2>贵金属价格出现回落</h2>
+      <p>现货黄金跌约1%，现货白银下破59美元；避险资产波动加大，需结合美元、利率和地缘风险观察。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article>
+<article class="item">
+      <div class="meta">财经投资者速览 10 条 · finance-10 · 多源确认</div>
+      <h2>人民币与亚洲汇率波动受关注</h2>
+      <p>在岸人民币兑美元收报6.7993，韩元受SK海力士ADR资金流影响走强，跨境资金和出口链汇率敏感度需要留意。</p>
+      <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
+    </article></div>
+  </main>
+</body>
+</html>

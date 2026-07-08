@@ -1,0 +1,1183 @@
+{
+  "date": "2026-07-08",
+  "publishedAt": "2026-07-08T08:00:00+08:00",
+  "updatedAt": "2026-07-08T16:30:00+08:00",
+  "timezone": "Asia/Shanghai",
+  "weather": {
+    "label": "今日天气参考",
+    "condition": "晴",
+    "temperatureC": 31,
+    "feelsLikeC": 31,
+    "humidity": "63%",
+    "wind": "南南西风 14 km/h"
+  },
+  "mustRead": [
+    "official-01",
+    "world-01",
+    "buzz-01",
+    "tech-01",
+    "finance-01"
+  ],
+  "sections": [
+    {
+      "id": "official",
+      "className": "official",
+      "title": "国内官方新闻 10 条",
+      "kicker": "Domestic",
+      "note": "以新华社、央视网、国务院英文站等可核验来源为主，偏重政策、灾害、民生和公共事务。",
+      "items": [
+        {
+          "id": "official-01",
+          "rank": 1,
+          "title": "国家科学技术奖励大会等在京召开",
+          "summary": "习近平颁奖并讲话，科技强国建设成为当天国内主线。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。它位于本板块首条，说明今天需要优先阅读。",
+          "tags": [
+            "官方",
+            "国内",
+            "必看"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/politics/leaders/20260708/af5ccbea32284dc09bbe84f704a459cf/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://news.cctv.com/2026/07/08/ARTIczdneR9RGFX7s7AwjA9u260708.shtml",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-02",
+          "rank": 2,
+          "title": "2025年度国家科学技术奖揭晓",
+          "summary": "陈立泉、贲德获国家最高科学技术奖，共评出258个项目和11名科技专家。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/20260708/4fb52570e8954cd8a50227a2bea1e02f/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://news.cctv.com/2026/07/08/ARTIOenrT3dAmi5DXymQdo3N260708.shtml",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-03",
+          "rank": 3,
+          "title": "习近平对防汛救灾工作作出重要指示",
+          "summary": "要求全力抢险救援、安置群众，并防范次生灾害。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/politics/leaders/20260707/f4d56e283da748a7a6a9bd7bd65e580a/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://news.cctv.com/2026/07/07/ARTIr6CkpZOvlmwXzx3Vsjs1260707.shtml",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-04",
+          "rank": 4,
+          "title": "甘肃宕昌山体滑坡搜救结束",
+          "summary": "灾害造成21人遇难、7人轻伤，灾后处置和隐患排查仍受关注。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/local/20260708/34a9c4c08f9b40f5b61367e7305b48f3/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://news.cctv.com/2026/07/08/ARTI8InB8Nxd7SLX85FqZT2M260708.shtml",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-05",
+          "rank": 5,
+          "title": "民政部发布城乡三级养老服务网络建设指引",
+          "summary": "县、乡镇、村社三级养老服务体系建设将进一步明确。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/politics/20260708/06f6db55ed624103892acb97e29e0592/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://news.cctv.com/2026/07/08/ARTI7rD0xfBsmCIXa0fX5fFG260708.shtml",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-06",
+          "rank": 6,
+          "title": "旅游强国相关规划获批",
+          "summary": "服务供给、消费场景和文旅融合成为后续政策关注点。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "国务院英文站",
+              "url": "https://english.www.gov.cn/policies/latestreleases/202607/08/content_WS6a4db3d8c6d00ca5f9a0c0fc.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://www.cctv.com/",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-07",
+          "rank": 7,
+          "title": "全国暑期文化和旅游消费季启动",
+          "summary": "将举办超3万场文旅消费活动，并发放超4.5亿元补贴。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/politics/20260708/b020b7d3a41741468e45264b002a9a80/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://www.cctv.com/",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-08",
+          "rank": 8,
+          "title": "6月中国PMI改善",
+          "summary": "相关数据被解读为经济动能有所增强，制造业景气度受到关注。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "国务院英文站",
+              "url": "https://english.www.gov.cn/archive/statistics/202606/30/content_WS6a43653dc6d00ca5f9a0be34.html",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-09",
+          "rank": 9,
+          "title": "6月中国物流业景气指数继续回升",
+          "summary": "物流数据改善，反映产业流通和需求端变化。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "国务院英文站",
+              "url": "https://english.www.gov.cn/archive/statistics/202607/05/content_WS6a4a6507c6d00ca5f9a0c097.html",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "official-10",
+          "rank": 10,
+          "title": "国家发改委安排5000万元支持湖北灾后恢复",
+          "summary": "资金用于风雹等灾害后的应急恢复，防灾救灾链条持续推进。",
+          "whyItMatters": "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
+          "tags": [
+            "官方",
+            "国内"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/politics/20260708/93a32d6fb80b4268bd56752c931b2fe7/c.html",
+              "type": "official"
+            },
+            {
+              "name": "央视网",
+              "url": "https://www.cctv.com/",
+              "type": "official"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "className": "world",
+      "title": "国际新闻 10 条",
+      "kicker": "World",
+      "note": "以多家国际媒体和新华社报道轮廓互证为基础，聚焦冲突、市场、灾害和重要外交事件。",
+      "items": [
+        {
+          "id": "world-01",
+          "rank": 1,
+          "title": "霍尔木兹海峡局势再升级",
+          "summary": "美伊紧张升温，美国对伊朗目标发动新一轮打击并恢复石油制裁。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。它位于本板块首条，说明今天需要优先阅读。",
+          "tags": [
+            "国际",
+            "多源",
+            "必看"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/20260708/c849e15dfc2349c88a6932b84197c900/c.html",
+              "type": "media"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            },
+            {
+              "name": "The Guardian",
+              "url": "https://www.theguardian.com/world/2026/jul/08/iran-us-war-ceasefire-peace-agreement-strikes-strait-of-hormuz",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-02",
+          "rank": 2,
+          "title": "油价因美伊紧张和霍尔木兹风险上扬",
+          "summary": "地缘风险继续影响全球能源市场，避险情绪抬头。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            },
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/e0194864aba4379a069ce31becae2558",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-03",
+          "rank": 3,
+          "title": "北约峰会在土耳其安卡拉举行",
+          "summary": "防务开支和军工项目成为焦点，欧洲安全议程继续升温。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/nato-defense-trump-contracts-spending-turkey-summit-bede50a5b5e734b9705ffb480463f7ce",
+              "type": "media"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-04",
+          "rank": 4,
+          "title": "叙利亚大马士革发生爆炸",
+          "summary": "事发时法国总统马克龙正在访问，地区安全风险再受关注。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/syria-france-macron-damascus-explosions-4bbe664b13bc1fb18042e9689f4ceab7",
+              "type": "media"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-05",
+          "rank": 5,
+          "title": "纽约曼哈顿高楼因结构风险疏散",
+          "summary": "消防部门紧急处置，部分疏散后续解除。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/nyc-manhattan-building-collapse-risk-04dfeb966e0daa2caba74006ad174ea1",
+              "type": "media"
+            },
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/photo/20260708/06795519f5de4cc080f0eddc62edd895/c.html",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-06",
+          "rank": 6,
+          "title": "古巴在联合国抨击美国对古政策",
+          "summary": "相关辩论继续推进，古巴问题再回到多边场域。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/world/20260708/0538afda2d8c4d818c7c1be7da7e6ff6/c.html",
+              "type": "media"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-07",
+          "rank": 7,
+          "title": "古巴再次发生全国性大停电",
+          "summary": "能源供应和基础设施稳定性成为外界关注点。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/photo/20260708/7c0765a0cbd940f08bce4dff184fad16/c.html",
+              "type": "media"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-08",
+          "rank": 8,
+          "title": "俄乌冲突持续，基辅方向遇袭",
+          "summary": "袭击与反击消息交织，冲突态势仍处高压状态。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "The Guardian",
+              "url": "https://www.theguardian.com/world/2026/jul/08/ukraine-war-briefing-kyiv-targets-kremlin-shadow-tankers-as-russian-strikes-continue-in-capital",
+              "type": "media"
+            },
+            {
+              "name": "Al Jazeera",
+              "url": "https://www.aljazeera.com/news/",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-09",
+          "rank": 9,
+          "title": "阿根廷逆转埃及晋级八强引发骚乱",
+          "summary": "赛事结果、判罚争议与球迷冲突叠加发酵。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/argentina-egypt-world-cup-score-5129f0693b78e1ca7efeee87c46cc4cb",
+              "type": "media"
+            },
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/world/20260708/9b4e350e1318401a8c0eb2963c35c74c/c.html",
+              "type": "media"
+            }
+          ]
+        },
+        {
+          "id": "world-10",
+          "rank": 10,
+          "title": "AI概念股下跌拖累全球市场",
+          "summary": "科技股波动与地缘风险共同影响市场情绪。",
+          "whyItMatters": "这条国际信息会影响地区安全、外交关系或全球市场情绪，需要结合多家来源持续观察。",
+          "tags": [
+            "国际",
+            "多源"
+          ],
+          "sources": [
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/e0194864aba4379a069ce31becae2558",
+              "type": "media"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buzz",
+      "className": "buzz",
+      "title": "全网热议 10 条",
+      "kicker": "Trending",
+      "note": "合并公开热榜和讨论强度，既看“哪里热”，也看“为什么讨论激烈”。这部分代表传播热度，不等同于事实重要性。",
+      "items": [
+        {
+          "id": "buzz-01",
+          "rank": 1,
+          "title": "广西抗洪救援与求助信息",
+          "summary": "抖音、今日头条、快手持续高热；讨论集中在救援进展、求助专区、解放军和多方力量驰援。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。它位于本板块首条，说明今天需要优先阅读。",
+          "tags": [
+            "热榜",
+            "讨论",
+            "必看"
+          ],
+          "sources": [
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            },
+            {
+              "name": "今日头条",
+              "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+              "type": "platform"
+            },
+            {
+              "name": "快手",
+              "url": "https://www.kuaishou.com/?isHome=1",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-02",
+          "rank": 2,
+          "title": "台风“巴威”逼近与多地防范",
+          "summary": "台风警戒、浙江迎战、强度变化不断上榜；讨论焦点是路径、影响范围和地方防御。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            },
+            {
+              "name": "今日头条",
+              "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+              "type": "platform"
+            },
+            {
+              "name": "快手",
+              "url": "https://www.kuaishou.com/?isHome=1",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-03",
+          "rank": 3,
+          "title": "甘肃陇南滑坡21人遇难",
+          "summary": "灾害信息在短视频平台传播；公众关注搜救结束、山区地质灾害预警和灾后安置。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            },
+            {
+              "name": "快手",
+              "url": "https://www.kuaishou.com/?isHome=1",
+              "type": "platform"
+            },
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/local/20260708/34a9c4c08f9b40f5b61367e7305b48f3/c.html",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-04",
+          "rank": 4,
+          "title": "广西涉灾谣言与辟谣",
+          "summary": "“洪水冲下很多尸体”不实等辟谣内容传播较广；讨论集中在灾情真假、信息核验和平台辟谣速度。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-05",
+          "rank": 5,
+          "title": "国家最高科技奖揭晓",
+          "summary": "百度热搜、抖音均有关注；陈立泉、贲德获奖带动科学家、锂电池产业和科技自立讨论。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "百度热搜",
+              "url": "https://top.baidu.com/board?tab=realtime",
+              "type": "platform"
+            },
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            },
+            {
+              "name": "新华社",
+              "url": "https://www.news.cn/20260708/4fb52570e8954cd8a50227a2bea1e02f/c.html",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-06",
+          "rank": 6,
+          "title": "世界杯阿根廷对埃及判罚争议",
+          "summary": "体育话题在热榜和评论区发酵；埃及足协申诉、判罚争议和球迷冲突共同推高热度。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            },
+            {
+              "name": "百度热搜",
+              "url": "https://top.baidu.com/board?tab=realtime",
+              "type": "platform"
+            },
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/argentina-egypt-world-cup-score-5129f0693b78e1ca7efeee87c46cc4cb",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-07",
+          "rank": 7,
+          "title": "中方向日方提出严正交涉",
+          "summary": "外交与地区安全议题高位上榜；讨论焦点集中在事件背景、措辞强度和后续回应。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "今日头条",
+              "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-08",
+          "rank": 8,
+          "title": "强降雨、雷暴大风和防汛形势",
+          "summary": "百度热搜和今日头条持续出现相关话题；多地强对流、河流超警和防汛难度形成公共安全关注。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "百度热搜",
+              "url": "https://top.baidu.com/board?tab=realtime",
+              "type": "platform"
+            },
+            {
+              "name": "今日头条",
+              "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-09",
+          "rank": 9,
+          "title": "美伊冲突相关话题再升温",
+          "summary": "中东局势、油价影响和军事风险成为跨平台关注点；讨论从国际安全延伸到能源价格。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "抖音",
+              "url": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+              "type": "platform"
+            },
+            {
+              "name": "快手",
+              "url": "https://www.kuaishou.com/?isHome=1",
+              "type": "platform"
+            },
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/e0194864aba4379a069ce31becae2558",
+              "type": "platform"
+            }
+          ]
+        },
+        {
+          "id": "buzz-10",
+          "rank": 10,
+          "title": "A股市场超3700只个股下跌",
+          "summary": "财经类讨论在今日头条升温；投资者关注市场情绪、板块轮动和信心修复。",
+          "whyItMatters": "这条内容代表公开平台上的讨论强度和传播热度，适合了解公众今天最集中关注什么。",
+          "tags": [
+            "热榜",
+            "讨论"
+          ],
+          "sources": [
+            {
+              "name": "今日头条",
+              "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+              "type": "platform"
+            },
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "platform"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "className": "tech",
+      "title": "科技圈热点新闻 10 条",
+      "kicker": "Technology",
+      "note": "来自 IT之家、钛媒体、财联社和平台科技话题，覆盖 AI、智能车、芯片、社交产品和硬件供应链。",
+      "items": [
+        {
+          "id": "tech-01",
+          "rank": 1,
+          "title": "消息称 DeepSeek 正在自研 AI 芯片",
+          "summary": "面向推理场景，意在减少对外部算力方案依赖。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。它位于本板块首条，说明今天需要优先阅读。",
+          "tags": [
+            "科技",
+            "产业",
+            "必看"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/810.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-02",
+          "rank": 2,
+          "title": "前华为“天才少年”李博杰与 DeepSeek 面试争议发酵",
+          "summary": "话题从面试体验延伸到创业、投资和契约精神。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/883.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-03",
+          "rank": 3,
+          "title": "小米汽车 SkyNomad 中文名“小米澎程”曝光",
+          "summary": "多平台官方账号上线，市场猜测其与小米增程 SUV 有关。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/836.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-04",
+          "rank": 4,
+          "title": "雷军回应小米汽车 SkyNomad 上市时间",
+          "summary": "“快了”的回应继续推高小米汽车新车型关注度。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/974/060.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-05",
+          "rank": 5,
+          "title": "微信员工回应“临时好友功能”热搜",
+          "summary": "用户对社交边界、隐私便利性和文件收发场景讨论升温。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/796.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-06",
+          "rank": 6,
+          "title": "华为乾崑智驾里程数断网后仍滚动引热议",
+          "summary": "官方称展示数据做了平滑处理，智能驾驶数据透明度受关注。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/803.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-07",
+          "rank": 7,
+          "title": "小米调整“小爱同学”组织架构",
+          "summary": "消息称罗福莉 MiMo 团队负责基础模型能力，端侧 AI 助手继续升温。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/492.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-08",
+          "rank": 8,
+          "title": "中国部分 AI 大模型被称比美国便宜 60%-90%",
+          "summary": "性价比优势推动中国模型在美国企业端应用扩大。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "钛媒体",
+              "url": "https://www.tmtpost.com/",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-09",
+          "rank": 9,
+          "title": "威刚预警 Q3 内存、闪存将大幅涨价",
+          "summary": "内存预计涨20%-30%，闪存预计涨35%-40%，影响多类终端成本。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/683.htm",
+              "type": "official"
+            }
+          ]
+        },
+        {
+          "id": "tech-10",
+          "rank": 10,
+          "title": "SpaceX 申请部署最多 10 万颗卫星",
+          "summary": "卫星互联网被视为 AI 时代太空通信底座的重要方向。",
+          "whyItMatters": "这条科技信息关系到 AI、智能汽车、芯片、硬件或平台产品的产业变化，适合跟踪科技商业趋势。",
+          "tags": [
+            "科技",
+            "产业"
+          ],
+          "sources": [
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/0/973/891.htm",
+              "type": "official"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "className": "finance",
+      "title": "财经投资者速览 10 条",
+      "kicker": "Markets",
+      "note": "为投资者提炼今天的市场变量：股市情绪、港股科技、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。",
+      "items": [
+        {
+          "id": "finance-01",
+          "rank": 1,
+          "title": "A股市场情绪偏弱",
+          "summary": "“全市场超3700只个股下跌”进入热榜，关注风险偏好、成交量和后续政策预期能否修复。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。它位于本板块首条，说明今天需要优先阅读。",
+          "tags": [
+            "财经",
+            "投资者关注",
+            "必看"
+          ],
+          "sources": [
+            {
+              "name": "今日头条",
+              "url": "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
+              "type": "market"
+            },
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-02",
+          "rank": 2,
+          "title": "港股科技股显著走强",
+          "summary": "恒指涨2.99%，恒生科技指数涨4.97%；阿里巴巴涨超12%，互联网龙头估值修复成为重点观察线。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "钛媒体",
+              "url": "https://www.tmtpost.com/",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-03",
+          "rank": 3,
+          "title": "国际油价快速拉升",
+          "summary": "WTI涨超6%、布伦特涨近6%，能源股、通胀预期、航空和化工成本都可能受到牵动。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/e0194864aba4379a069ce31becae2558",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-04",
+          "rank": 4,
+          "title": "美股股指期货跳水",
+          "summary": "纳指期货、道指期货跌超1%，外盘风险偏好转弱，可能影响A股和港股次日开盘情绪。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "AP",
+              "url": "https://apnews.com/article/e0194864aba4379a069ce31becae2558",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-05",
+          "rank": 5,
+          "title": "美股油气板块盘前普涨",
+          "summary": "埃克森美孚涨超2%，油价上行推动能源股受益，但也需要警惕需求端和地缘风险反复。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "钛媒体",
+              "url": "https://www.tmtpost.com/",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-06",
+          "rank": 6,
+          "title": "存储芯片链条回调加剧",
+          "summary": "美光、闪迪、西部数据、希捷盘前走弱，全球存储三巨头自高点回落超20%，半导体存储进入再定价阶段。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "IT之家",
+              "url": "https://www.ithome.com/",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-07",
+          "rank": 7,
+          "title": "6月乘用车出口同比大增",
+          "summary": "乘联分会数据显示，6月乘用车出口同比增长82.3%，新能源车占出口总量56.9%，汽车产业链出海仍是长线变量。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "乘联分会",
+              "url": "https://www.cpcaauto.com/",
+              "type": "market"
+            },
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-08",
+          "rank": 8,
+          "title": "券商另类子公司加码科创直投",
+          "summary": "50余家券商另类子公司近三年直投科创企业超200亿元，硬科技、专精特新和耐心资本值得跟踪。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "钛媒体",
+              "url": "https://www.tmtpost.com/",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-09",
+          "rank": 9,
+          "title": "贵金属价格出现回落",
+          "summary": "现货黄金跌约1%，现货白银下破59美元；避险资产波动加大，需结合美元、利率和地缘风险观察。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "钛媒体",
+              "url": "https://www.tmtpost.com/",
+              "type": "market"
+            }
+          ]
+        },
+        {
+          "id": "finance-10",
+          "rank": 10,
+          "title": "人民币与亚洲汇率波动受关注",
+          "summary": "在岸人民币兑美元收报6.7993，韩元受SK海力士ADR资金流影响走强，跨境资金和出口链汇率敏感度需要留意。",
+          "whyItMatters": "这条财经信息关系到市场情绪、资产价格或产业链变量，适合投资者做信息跟踪，不构成投资建议。",
+          "tags": [
+            "财经",
+            "投资者关注"
+          ],
+          "sources": [
+            {
+              "name": "财联社",
+              "url": "https://www.cls.cn/telegraph",
+              "type": "market"
+            },
+            {
+              "name": "钛媒体",
+              "url": "https://www.tmtpost.com/",
+              "type": "market"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

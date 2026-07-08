@@ -1,0 +1,56 @@
+{
+  "timezone": "Asia/Shanghai",
+  "publishHour": 8,
+  "sections": [
+    {
+      "id": "official",
+      "className": "official",
+      "title": "国内官方新闻 10 条",
+      "kicker": "Domestic",
+      "note": "以新华社、央视网、国务院英文站等可核验来源为主，偏重政策、灾害、民生和公共事务。",
+      "minItems": 10,
+      "sourceType": "official",
+      "sourceNames": ["新华社", "央视网", "国务院英文站"]
+    },
+    {
+      "id": "world",
+      "className": "world",
+      "title": "国际新闻 10 条",
+      "kicker": "World",
+      "note": "以多家国际媒体和新华社报道轮廓互证为基础，聚焦冲突、市场、灾害和重要外交事件。",
+      "minItems": 10,
+      "sourceType": "media",
+      "sourceNames": ["新华社", "AP", "Al Jazeera", "The Guardian"]
+    },
+    {
+      "id": "buzz",
+      "className": "buzz",
+      "title": "全网热议 10 条",
+      "kicker": "Trending",
+      "note": "合并公开热榜和讨论强度，既看“哪里热”，也看“为什么讨论激烈”。这部分代表传播热度，不等同于事实重要性。",
+      "minItems": 10,
+      "sourceType": "platform",
+      "sourceNames": ["抖音", "今日头条", "快手", "百度热搜"]
+    },
+    {
+      "id": "tech",
+      "className": "tech",
+      "title": "科技圈热点新闻 10 条",
+      "kicker": "Technology",
+      "note": "来自 IT之家、钛媒体、财联社和平台科技话题，覆盖 AI、智能车、芯片、社交产品和硬件供应链。",
+      "minItems": 10,
+      "sourceType": "media",
+      "sourceNames": ["IT之家", "钛媒体", "财联社"]
+    },
+    {
+      "id": "finance",
+      "className": "finance",
+      "title": "财经投资者速览 10 条",
+      "kicker": "Markets",
+      "note": "为投资者提炼今天的市场变量：股市情绪、港股科技、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。",
+      "minItems": 10,
+      "sourceType": "market",
+      "sourceNames": ["财联社", "钛媒体", "乘联分会", "AP"]
+    }
+  ]
+}

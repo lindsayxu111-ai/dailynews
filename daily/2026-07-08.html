@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>每日头条 | 2026-07-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #eaf4fb;
+      --surface: #f7fbff;
+      --surface-strong: #ffffff;
+      --ink: #10233d;
+      --muted: #5e7188;
+      --line: #c9dced;
+      --accent: #2d8fce;
+      --accent-2: #284b73;
+      --accent-3: #77cfff;
+      --accent-4: #1f7f9b;
+      --gold: #ffb35d;
+      --orange: #e47f52;
+      --green: #7ec7b5;
+      --yellow: #f4c95d;
+      --shadow: 0 22px 55px rgba(22, 50, 84, 0.14);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(119, 207, 255, 0.34), transparent 30rem),
+        linear-gradient(140deg, #eaf4fb 0%, #dbeaf6 46%, #eef7fd 100%),
+        repeating-linear-gradient(0deg, rgba(16, 35, 61, 0.025) 0 1px, transparent 1px 24px),
+        var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .masthead {
+      position: relative;
+      overflow: hidden;
+      min-height: 360px;
+      padding: 34px;
+      border: 1px solid rgba(68, 118, 158, 0.22);
+      border-radius: 18px;
+      background:
+        linear-gradient(105deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 251, 255, 0.92) 52%, rgba(221, 239, 252, 0.78) 100%),
+        repeating-linear-gradient(90deg, rgba(40, 75, 115, 0.04) 0 1px, transparent 1px 84px);
+      background-size: cover;
+      box-shadow: var(--shadow);
+    }
+
+    .masthead::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: linear-gradient(180deg, #77cfff, var(--accent-2) 55%, #2d8fce);
+    }
+
+    .hero-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.72fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .pill.strong {
+      border-color: rgba(45, 143, 206, 0.32);
+      background: #e7f6ff;
+      color: #1d5f90;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: 0.98;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: #304860;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.55;
+    }
+
+    .subtitle-lead {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.18;
+      font-weight: 900;
+    }
+
+    .subtitle-emphasis {
+      display: inline;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .headline-art {
+      position: relative;
+      overflow: hidden;
+      min-height: 210px;
+      margin-top: 24px;
+      border: 1px solid rgba(145, 217, 255, 0.34);
+      border-radius: 18px;
+      background:
+        linear-gradient(90deg, rgba(16, 35, 61, 0.08), rgba(16, 35, 61, 0)),
+        url("../assets/daily-headline-blue.svg") center / cover no-repeat;
+      box-shadow: 0 20px 42px rgba(30, 74, 112, 0.18);
+    }
+
+    .headline-art::after {
+      content: "3 MIN BRIEF";
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 999px;
+      background: rgba(16, 35, 61, 0.42);
+      color: #e9f6ff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .topic-rail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .topic {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 11px;
+      border: 1px solid rgba(69, 54, 40, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #26415d;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .topic:nth-child(1) {
+      border-color: rgba(126, 199, 181, 0.38);
+      background: #ecfbf7;
+    }
+
+    .topic:nth-child(2) {
+      border-color: rgba(45, 143, 206, 0.32);
+      background: #e9f6ff;
+    }
+
+    .topic:nth-child(3) {
+      border-color: rgba(244, 201, 93, 0.52);
+      background: #fff8df;
+    }
+
+    .topic:nth-child(4) {
+      border-color: rgba(126, 199, 181, 0.42);
+      background: #effbf9;
+    }
+
+    .topic:nth-child(5) {
+      border-color: rgba(228, 127, 82, 0.42);
+      background: #fff1ea;
+    }
+
+    .cover-visual {
+      position: relative;
+      overflow: hidden;
+      min-height: 470px;
+      border: 1px solid rgba(145, 217, 255, 0.36);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(119, 207, 255, 0.28), transparent 8rem),
+        radial-gradient(circle at 10% 92%, rgba(244, 201, 93, 0.18), transparent 9rem),
+        linear-gradient(140deg, rgba(40, 75, 115, 0.94), rgba(25, 55, 93, 0.96) 52%, rgba(14, 35, 65, 0.96)),
+        repeating-linear-gradient(0deg, transparent 0 16px, rgba(255, 255, 255, 0.1) 16px 17px);
+      color: #fffaf2;
+      box-shadow: 0 22px 44px rgba(36, 33, 28, 0.18);
+    }
+
+    .cover-visual::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 250, 242, 0.22);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+
+    .cover-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 26px 26px 0;
+      color: rgba(255, 250, 242, 0.76);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .cover-topline span:first-child {
+      color: #e9f6ff;
+    }
+
+    .cover-topline span:last-child {
+      color: var(--yellow);
+    }
+
+    .cover-title {
+      position: relative;
+      z-index: 1;
+      margin: 34px 26px 0;
+      font-size: clamp(30px, 3.4vw, 46px);
+      line-height: 1.02;
+      font-weight: 900;
+    }
+
+    .cover-title span {
+      display: block;
+      color: #77cfff;
+    }
+
+    .cover-weather {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 22px 26px 0;
+    }
+
+    .cover-date-block {
+      min-width: 0;
+    }
+
+    .cover-date-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(126, 199, 181, 0.18);
+      color: #bdeee1;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .cover-date {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: baseline;
+      margin-top: 14px;
+      color: #e9f6ff;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .cover-year {
+      font-size: clamp(28px, 2.6vw, 38px);
+      letter-spacing: 0;
+    }
+
+    .cover-month-day {
+      color: var(--orange);
+      font-size: clamp(42px, 4.6vw, 58px);
+      letter-spacing: 0;
+    }
+
+    .cover-day {
+      margin-top: 12px;
+      color: rgba(233, 246, 255, 0.82);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .cover-temp {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 86px;
+      padding: 14px 16px;
+      border: 1px solid rgba(119, 207, 255, 0.24);
+      border-radius: 16px;
+      background: rgba(233, 246, 255, 0.09);
+      text-align: left;
+    }
+
+    .cover-temp strong {
+      display: block;
+      color: #77cfff;
+      font-size: clamp(40px, 4.2vw, 56px);
+      line-height: 0.9;
+      font-weight: 900;
+    }
+
+    .cover-temp span {
+      display: block;
+      margin-top: 12px;
+      color: var(--yellow);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .cover-weather-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 24px 24px;
+    }
+
+    .weather-illustration {
+      position: absolute;
+      right: 28px;
+      bottom: 118px;
+      width: 112px;
+      height: 112px;
+      pointer-events: none;
+    }
+
+    .weather-illustration::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 42px rgba(244, 201, 93, 0.42);
+    }
+
+    .weather-illustration::after {
+      content: "";
+      position: absolute;
+      right: 22px;
+      bottom: 18px;
+      width: 78px;
+      height: 32px;
+      border-radius: 999px;
+      background: rgba(233, 246, 255, 0.9);
+      box-shadow:
+        -24px 5px 0 3px rgba(233, 246, 255, 0.82),
+        22px 4px 0 -2px rgba(233, 246, 255, 0.72);
+    }
+
+    .cover-weather-item {
+      padding: 12px;
+      min-width: 0;
+      border: 1px solid rgba(255, 250, 242, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, 0.1);
+      color: #e9f6ff;
+      font-size: 13px;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .cover-weather-item:nth-child(1) {
+      border-color: rgba(244, 201, 93, 0.36);
+      background: rgba(244, 201, 93, 0.12);
+    }
+
+    .cover-weather-item:nth-child(2) {
+      border-color: rgba(126, 199, 181, 0.36);
+      background: rgba(126, 199, 181, 0.12);
+    }
+
+    .cover-weather-item:nth-child(3) {
+      border-color: rgba(228, 127, 82, 0.36);
+      background: rgba(228, 127, 82, 0.12);
+    }
+
+    .cover-weather-item span {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(255, 250, 242, 0.62);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .signal-board {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      left: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .signal-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .signal-line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.25);
+    }
+
+    .signal-line:nth-child(1) { width: 72%; background: #f0c76c; }
+    .signal-line:nth-child(2) { width: 92%; background: #87c8ce; }
+    .signal-line:nth-child(3) { width: 58%; background: #f7eee1; }
+    .signal-line:nth-child(4) { width: 82%; background: #d78469; }
+
+    .mini-map {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      padding: 12px;
+      border: 1px solid rgba(255, 250, 242, 0.24);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, 0.09);
+    }
+
+    .map-cell {
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 250, 242, 0.18);
+      border-radius: 4px;
+      background: rgba(255, 250, 242, 0.1);
+    }
+
+    .map-cell.hot { background: #f0c76c; }
+    .map-cell.cool { background: #87c8ce; }
+    .map-cell.warn { background: #d78469; }
+
+    .ticker-strip {
+      position: absolute;
+      right: 26px;
+      bottom: 140px;
+      left: 26px;
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      color: rgba(255, 250, 242, 0.82);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .ticker-strip span {
+      padding: 5px 8px;
+      border: 1px solid rgba(255, 250, 242, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.1);
+    }
+
+    .daily-dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .date-spotlight,
+    .weather-spotlight {
+      min-height: 132px;
+      padding: 20px;
+      border: 1px solid rgba(69, 54, 40, 0.13);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 10px 24px rgba(30, 74, 112, 0.08);
+    }
+
+    .date-spotlight time {
+      display: block;
+      margin-top: 6px;
+      font-size: clamp(34px, 5.4vw, 58px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .date-spotlight span,
+    .weather-spotlight span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .weather-main {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      margin-top: 8px;
+    }
+
+    .weather-main strong {
+      font-size: clamp(34px, 4.4vw, 52px);
+      line-height: 1;
+    }
+
+    .weather-main b {
+      color: #355f70;
+      font-size: 20px;
+    }
+
+    .weather-detail {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .weather-detail li {
+      padding: 8px;
+      border: 1px solid #cfe4f4;
+      border-radius: var(--radius);
+      background: #f2f9ff;
+      color: #284b73;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .edition-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .edition-link {
+      min-height: 70px;
+      padding: 12px;
+      border: 1px solid rgba(68, 118, 158, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.7);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .edition-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 143, 206, 0.38);
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    .edition-link strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .edition-link span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .metric {
+      padding: 14px;
+      border: 1px solid rgba(69, 54, 40, 0.13);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .share-panel {
+      position: relative;
+      margin: 20px 0 0;
+      overflow: hidden;
+      border: 1px solid rgba(164, 180, 191, 0.34);
+      border-radius: 18px;
+      background: #e9edf0;
+      box-shadow: 0 18px 38px rgba(45, 63, 76, 0.12);
+    }
+
+    .wechat-bar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(164, 180, 191, 0.34);
+      background: #f6f7f8;
+      overflow: hidden;
+    }
+
+    .wechat-title-group {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    .share-panel h2 {
+      margin: 0;
+      color: #10233d;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .share-panel p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .wechat-chat {
+      position: relative;
+      z-index: 1;
+      padding: 20px 18px 22px;
+      background:
+        linear-gradient(180deg, rgba(235, 239, 242, 0.98), rgba(221, 228, 232, 0.98)),
+        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.78), transparent 12rem);
+    }
+
+    .wechat-time {
+      width: max-content;
+      margin: 0 auto 16px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(120, 137, 149, 0.22);
+      color: #5b6974;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .wechat-row {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 680px);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .wechat-avatar {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #19c36b, #0aa35a);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(10, 163, 90, 0.24);
+    }
+
+    .share-text {
+      position: relative;
+      overflow-x: auto;
+      max-height: 430px;
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid rgba(22, 130, 82, 0.16);
+      border-radius: 0 14px 14px 14px;
+      background: #b9f6c9;
+      color: #14291f;
+      font: 14px/1.7 "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      white-space: pre-wrap;
+      box-shadow: 0 10px 22px rgba(23, 90, 62, 0.12);
+    }
+
+    .share-text::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -8px;
+      width: 0;
+      height: 0;
+      border-top: 9px solid #b9f6c9;
+      border-left: 9px solid transparent;
+    }
+
+    .copy-button {
+      position: relative;
+      z-index: 1;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 999px;
+      background: #18365d;
+      color: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background: var(--accent);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin: 18px 0 28px;
+      padding: 10px;
+      border: 1px solid rgba(69, 54, 40, 0.12);
+      border-radius: 999px;
+      background: rgba(247, 251, 255, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 24px rgba(30, 74, 112, 0.08);
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: #28415f;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a:hover {
+      background: #dff1ff;
+      color: var(--ink);
+    }
+
+    .section {
+      position: relative;
+      overflow: hidden;
+      margin-top: 26px;
+      padding: 26px;
+      border: 1px solid rgba(69, 54, 40, 0.12);
+      border-radius: 16px;
+      background: rgba(247, 251, 255, 0.9);
+      box-shadow: 0 12px 32px rgba(30, 74, 112, 0.08);
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--accent);
+    }
+
+    .world::before { background: var(--accent-2); }
+    .buzz::before { background: var(--yellow); }
+    .tech::before { background: var(--green); }
+    .finance::before { background: var(--orange); }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: end;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3.2vw, 42px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      max-width: 700px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 12px;
+      min-height: 156px;
+      padding: 18px;
+      border: 1px solid rgba(69, 54, 40, 0.1);
+      border-radius: var(--radius);
+      background: var(--surface-strong);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .news-grid .card:first-child {
+      grid-column: 1 / -1;
+      min-height: 132px;
+      grid-template-columns: 58px minmax(0, 1fr);
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(45, 143, 206, 0.12), transparent 42%),
+        var(--surface-strong);
+    }
+
+    .world .news-grid .card:first-child {
+      background: linear-gradient(90deg, rgba(40, 75, 115, 0.12), transparent 42%), var(--surface-strong);
+    }
+
+    .buzz .news-grid .card:first-child {
+      background: linear-gradient(90deg, rgba(244, 201, 93, 0.16), transparent 42%), var(--surface-strong);
+    }
+
+    .tech .news-grid .card:first-child {
+      background: linear-gradient(90deg, rgba(126, 199, 181, 0.14), transparent 42%), var(--surface-strong);
+    }
+
+    .finance .news-grid .card:first-child {
+      background: linear-gradient(90deg, rgba(228, 127, 82, 0.13), transparent 42%), var(--surface-strong);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 143, 206, 0.32);
+      box-shadow: 0 16px 30px rgba(30, 74, 112, 0.12);
+    }
+
+    .num {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #e3f4ff;
+      color: #1e5d8b;
+      font-weight: 850;
+      font-size: 15px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: clamp(16px, 1.4vw, 18px);
+      line-height: 1.38;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin: 8px 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .source {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border: 1px solid #d2e5f3;
+      border-radius: 999px;
+      background: #f1f8ff;
+      color: #4d6680;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .source:hover {
+      border-color: rgba(45, 143, 206, 0.35);
+      color: var(--accent);
+    }
+
+    .official .section-kicker,
+    .official .num {
+      color: #1e5d8b;
+    }
+
+    .world .section-kicker,
+    .world .num {
+      color: #284b73;
+    }
+
+    .world .num {
+      background: #dceeff;
+    }
+
+    .buzz .section-kicker,
+    .buzz .num {
+      color: #9a6b12;
+    }
+
+    .buzz .num {
+      background: #fff4c9;
+    }
+
+    .tech .section-kicker,
+    .tech .num {
+      color: #247564;
+    }
+
+    .tech .num {
+      background: #ddf5ef;
+    }
+
+    .finance .section-kicker,
+    .finance .num {
+      color: #a14c2a;
+    }
+
+    .finance .num {
+      background: #ffe7dc;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 22px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        width: min(100% - 20px, 720px);
+        padding-top: 10px;
+      }
+
+      .masthead,
+      .section {
+        padding: 22px;
+      }
+
+      .summary-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-visual {
+        min-height: 420px;
+      }
+
+      .cover-weather {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-temp {
+        min-height: 112px;
+        justify-items: start;
+        text-align: left;
+      }
+
+      .cover-weather-grid {
+        position: static;
+        grid-template-columns: 1fr;
+        margin: 16px 24px 24px;
+      }
+
+      .weather-illustration {
+        right: 26px;
+        bottom: 148px;
+        width: 88px;
+        height: 88px;
+        opacity: 0.8;
+      }
+
+      .daily-dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .edition-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .news-grid .card:first-child {
+        grid-column: auto;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .wechat-row {
+        grid-template-columns: 38px minmax(0, 1fr);
+      }
+
+      .wechat-avatar {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1120px) {
+      .hero-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.62fr);
+        gap: 22px;
+      }
+
+      .cover-visual {
+        min-height: 430px;
+      }
+
+      .cover-weather-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .news-grid .card:first-child {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .masthead {
+        min-height: 0;
+      }
+
+      .summary-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .edition-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-board {
+        grid-template-columns: 1fr;
+      }
+
+      .ticker-strip {
+        bottom: 160px;
+      }
+
+      .cover-date {
+        font-size: 32px;
+      }
+
+      .weather-detail {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        grid-template-columns: 36px minmax(0, 1fr);
+        padding: 15px;
+      }
+
+      .num {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+      }
+
+      .card h3 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="pill strong">2026年7月8日</span>
+            <span class="pill">北京时间 16:30 整理</span>
+            <span class="pill">多源比对版</span>
+          </div>
+          <h1>每日头条</h1>
+          <div class="headline-art" role="img" aria-label="蓝色信息流日报背景图"></div>
+          <p class="subtitle"><span class="subtitle-lead">在这个信息过载的时代，稀缺的不是资讯，是判断。</span>不用一小时，一杯咖啡的时间，天下大事，尽在你手。<br>每一天，总有一个视角值得被重新审视。<br><span class="subtitle-emphasis">欢迎来到每日头条——让你花更少的时间，看懂更大的世界。</span></p>
+          <div class="topic-rail" aria-label="今日关键词">
+            <span class="topic">防汛救灾</span>
+            <span class="topic">国际冲突</span>
+            <span class="topic">全网热议</span>
+            <span class="topic">AI 与汽车</span>
+            <span class="topic">投资线索</span>
+          </div>
+        </div>
+        <aside class="cover-visual" aria-label="日报封面视觉">
+          <div class="cover-topline"><span>今日简报</span><span>天气参考</span></div>
+          <div class="cover-weather">
+            <div class="cover-date-block">
+              <span class="cover-date-label">今日日期</span>
+              <time class="cover-date" datetime="2026-07-08"><span class="cover-year">2026年</span><span class="cover-month-day">7月8日</span></time>
+              <div class="cover-day">星期三 · 北京时间 16:30 整理</div>
+            </div>
+            <div class="cover-temp">
+              <strong>31°C</strong>
+              <span>晴</span>
+            </div>
+          </div>
+          <div class="cover-weather-grid" aria-label="天气细节">
+            <div class="cover-weather-item"><span>Feels Like</span>体感 31°C</div>
+            <div class="cover-weather-item"><span>Humidity</span>湿度 63%</div>
+            <div class="cover-weather-item"><span>Wind</span>南南西风 14 km/h</div>
+          </div>
+          <div class="weather-illustration" aria-hidden="true"></div>
+        </aside>
+      </div>
+      <div class="summary-strip" aria-label="日报摘要">
+        <div class="metric"><strong>50</strong><span>条精选内容</span></div>
+        <div class="metric"><strong>5</strong><span>个阅读板块</span></div>
+        <div class="metric"><strong>20+</strong><span>来源与平台</span></div>
+        <div class="metric"><strong>31°C</strong><span>今日天气</span></div>
+        <div class="metric"><strong>1</strong><span>页完整日报</span></div>
+      </div>
+      <div class="edition-strip" aria-label="板块入口">
+        <a class="edition-link" href="#official"><strong>国内官方</strong><span>政策、灾害、民生</span></a>
+        <a class="edition-link" href="#world"><strong>国际新闻</strong><span>冲突、外交、市场</span></a>
+        <a class="edition-link" href="#buzz"><strong>全网热议</strong><span>热榜与讨论焦点</span></a>
+        <a class="edition-link" href="#tech"><strong>科技圈</strong><span>AI、汽车、硬件</span></a>
+        <a class="edition-link" href="#finance"><strong>财经投资</strong><span>股市、油价、汇率</span></a>
+      </div>
+    </header>
+
+    <section class="share-panel" aria-labelledby="wechat-title">
+      <div class="wechat-bar">
+        <div class="wechat-title-group">
+        <h2 id="wechat-title">微信分享版</h2>
+        <p>这段适合直接复制到微信，先发给别人做速览；完整 50 条在下方页面里继续阅读。</p>
+        </div>
+        <button class="copy-button" type="button" onclick="copyShareText()">复制微信版</button>
+      </div>
+      <div class="wechat-chat">
+        <div class="wechat-time">今天 16:30</div>
+        <div class="wechat-row">
+          <div class="wechat-avatar" aria-hidden="true">头条</div>
+        <pre class="share-text" id="shareText">【每日头条｜2026年7月8日】
+今日天气参考：晴，31°C，体感31°C，湿度63%，南南西风 14 km/h。
+今天重点看五条线：防汛救灾、国际冲突、全网热议、科技圈、财经市场。
+
+1. 国内官方新闻：习近平颁奖并讲话，科技强国建设成为当天国内主线。
+2. 国际新闻：美伊紧张升温，美国对伊朗目标发动新一轮打击并恢复石油制裁。
+3. 全网热议：抖音、今日头条、快手持续高热；讨论集中在救援进展、求助专区、解放军和多方力量驰援。
+4. 科技圈热点新闻：面向推理场景，意在减少对外部算力方案依赖。
+5. 财经投资者速览：“全市场超3700只个股下跌”进入热榜，关注风险偏好、成交量和后续政策预期能否修复。
+
+提示：平台热榜代表讨论热度，不等同于事实重要性；财经内容仅作信息梳理，不构成投资建议。</pre>
+        </div>
+      </div>
+    </section>
+
+    <nav class="nav" aria-label="页面导航">
+      <a href="#official">国内官方</a>
+      <a href="#world">国际新闻</a>
+      <a href="#buzz">全网热议</a>
+      <a href="#tech">科技圈</a>
+      <a href="#finance">财经投资</a>
+      <a href="../archive.html">历史日报</a>
+    </nav>
+
+    <section class="section official" id="official">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Domestic</div>
+          <h2>国内官方新闻 10 条</h2>
+          <p class="section-note">以新华社、央视网、国务院英文站等可核验来源为主，偏重政策、灾害、民生和公共事务。</p>
+        </div>
+        <span class="pill">官方信息源</span>
+      </div>
+      <div class="news-grid">
+        <article class="card"><div class="num">01</div><div><h3><a href="../news/2026-07-08/official-01.html">国家科学技术奖励大会等在京召开</a></h3><p>习近平颁奖并讲话，科技强国建设成为当天国内主线。</p><div class="sources"><a class="source" href="https://www.news.cn/politics/leaders/20260708/af5ccbea32284dc09bbe84f704a459cf/c.html">新华社</a><a class="source" href="https://news.cctv.com/2026/07/08/ARTIczdneR9RGFX7s7AwjA9u260708.shtml">央视网</a></div></div></article>
+        <article class="card"><div class="num">02</div><div><h3><a href="../news/2026-07-08/official-02.html">2025年度国家科学技术奖揭晓</a></h3><p>陈立泉、贲德获国家最高科学技术奖，共评出258个项目和11名科技专家。</p><div class="sources"><a class="source" href="https://www.news.cn/20260708/4fb52570e8954cd8a50227a2bea1e02f/c.html">新华社</a><a class="source" href="https://news.cctv.com/2026/07/08/ARTIOenrT3dAmi5DXymQdo3N260708.shtml">央视网</a></div></div></article>
+        <article class="card"><div class="num">03</div><div><h3><a href="../news/2026-07-08/official-03.html">习近平对防汛救灾工作作出重要指示</a></h3><p>要求全力抢险救援、安置群众，并防范次生灾害。</p><div class="sources"><a class="source" href="https://www.news.cn/politics/leaders/20260707/f4d56e283da748a7a6a9bd7bd65e580a/c.html">新华社</a><a class="source" href="https://news.cctv.com/2026/07/07/ARTIr6CkpZOvlmwXzx3Vsjs1260707.shtml">央视网</a></div></div></article>
+        <article class="card"><div class="num">04</div><div><h3><a href="../news/2026-07-08/official-04.html">甘肃宕昌山体滑坡搜救结束</a></h3><p>灾害造成21人遇难、7人轻伤，灾后处置和隐患排查仍受关注。</p><div class="sources"><a class="source" href="https://www.news.cn/local/20260708/34a9c4c08f9b40f5b61367e7305b48f3/c.html">新华社</a><a class="source" href="https://news.cctv.com/2026/07/08/ARTI8InB8Nxd7SLX85FqZT2M260708.shtml">央视网</a></div></div></article>
+        <article class="card"><div class="num">05</div><div><h3><a href="../news/2026-07-08/official-05.html">民政部发布城乡三级养老服务网络建设指引</a></h3><p>县、乡镇、村社三级养老服务体系建设将进一步明确。</p><div class="sources"><a class="source" href="https://www.news.cn/politics/20260708/06f6db55ed624103892acb97e29e0592/c.html">新华社</a><a class="source" href="https://news.cctv.com/2026/07/08/ARTI7rD0xfBsmCIXa0fX5fFG260708.shtml">央视网</a></div></div></article>
+        <article class="card"><div class="num">06</div><div><h3><a href="../news/2026-07-08/official-06.html">旅游强国相关规划获批</a></h3><p>服务供给、消费场景和文旅融合成为后续政策关注点。</p><div class="sources"><a class="source" href="https://english.www.gov.cn/policies/latestreleases/202607/08/content_WS6a4db3d8c6d00ca5f9a0c0fc.html">国务院英文站</a><a class="source" href="https://www.cctv.com/">央视网</a></div></div></article>
+        <article class="card"><div class="num">07</div><div><h3><a href="../news/2026-07-08/official-07.html">全国暑期文化和旅游消费季启动</a></h3><p>将举办超3万场文旅消费活动，并发放超4.5亿元补贴。</p><div class="sources"><a class="source" href="https://www.news.cn/politics/20260708/b020b7d3a41741468e45264b002a9a80/c.html">新华社</a><a class="source" href="https://www.cctv.com/">央视网</a></div></div></article>
+        <article class="card"><div class="num">08</div><div><h3><a href="../news/2026-07-08/official-08.html">6月中国PMI改善</a></h3><p>相关数据被解读为经济动能有所增强，制造业景气度受到关注。</p><div class="sources"><a class="source" href="https://english.www.gov.cn/archive/statistics/202606/30/content_WS6a43653dc6d00ca5f9a0be34.html">国务院英文站</a></div></div></article>
+        <article class="card"><div class="num">09</div><div><h3><a href="../news/2026-07-08/official-09.html">6月中国物流业景气指数继续回升</a></h3><p>物流数据改善，反映产业流通和需求端变化。</p><div class="sources"><a class="source" href="https://english.www.gov.cn/archive/statistics/202607/05/content_WS6a4a6507c6d00ca5f9a0c097.html">国务院英文站</a></div></div></article>
+        <article class="card"><div class="num">10</div><div><h3><a href="../news/2026-07-08/official-10.html">国家发改委安排5000万元支持湖北灾后恢复</a></h3><p>资金用于风雹等灾害后的应急恢复，防灾救灾链条持续推进。</p><div class="sources"><a class="source" href="https://www.news.cn/politics/20260708/93a32d6fb80b4268bd56752c931b2fe7/c.html">新华社</a><a class="source" href="https://www.cctv.com/">央视网</a></div></div></article>
+      </div>
+    </section>
+
+    <section class="section world" id="world">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">World</div>
+          <h2>国际新闻 10 条</h2>
+          <p class="section-note">以多家国际媒体和新华社报道轮廓互证为基础，聚焦冲突、市场、灾害和重要外交事件。</p>
+        </div>
+        <span class="pill">多源比对</span>
+      </div>
+      <div class="news-grid">
+        <article class="card"><div class="num">01</div><div><h3><a href="../news/2026-07-08/world-01.html">霍尔木兹海峡局势再升级</a></h3><p>美伊紧张升温，美国对伊朗目标发动新一轮打击并恢复石油制裁。</p><div class="sources"><a class="source" href="https://www.news.cn/20260708/c849e15dfc2349c88a6932b84197c900/c.html">新华社</a><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a><a class="source" href="https://www.theguardian.com/world/2026/jul/08/iran-us-war-ceasefire-peace-agreement-strikes-strait-of-hormuz">The Guardian</a></div></div></article>
+        <article class="card"><div class="num">02</div><div><h3><a href="../news/2026-07-08/world-02.html">油价因美伊紧张和霍尔木兹风险上扬</a></h3><p>地缘风险继续影响全球能源市场，避险情绪抬头。</p><div class="sources"><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a><a class="source" href="https://apnews.com/article/e0194864aba4379a069ce31becae2558">AP</a></div></div></article>
+        <article class="card"><div class="num">03</div><div><h3><a href="../news/2026-07-08/world-03.html">北约峰会在土耳其安卡拉举行</a></h3><p>防务开支和军工项目成为焦点，欧洲安全议程继续升温。</p><div class="sources"><a class="source" href="https://apnews.com/article/nato-defense-trump-contracts-spending-turkey-summit-bede50a5b5e734b9705ffb480463f7ce">AP</a><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a></div></div></article>
+        <article class="card"><div class="num">04</div><div><h3><a href="../news/2026-07-08/world-04.html">叙利亚大马士革发生爆炸</a></h3><p>事发时法国总统马克龙正在访问，地区安全风险再受关注。</p><div class="sources"><a class="source" href="https://apnews.com/article/syria-france-macron-damascus-explosions-4bbe664b13bc1fb18042e9689f4ceab7">AP</a><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a></div></div></article>
+        <article class="card"><div class="num">05</div><div><h3><a href="../news/2026-07-08/world-05.html">纽约曼哈顿高楼因结构风险疏散</a></h3><p>消防部门紧急处置，部分疏散后续解除。</p><div class="sources"><a class="source" href="https://apnews.com/article/nyc-manhattan-building-collapse-risk-04dfeb966e0daa2caba74006ad174ea1">AP</a><a class="source" href="https://www.news.cn/photo/20260708/06795519f5de4cc080f0eddc62edd895/c.html">新华社</a></div></div></article>
+        <article class="card"><div class="num">06</div><div><h3><a href="../news/2026-07-08/world-06.html">古巴在联合国抨击美国对古政策</a></h3><p>相关辩论继续推进，古巴问题再回到多边场域。</p><div class="sources"><a class="source" href="https://www.news.cn/world/20260708/0538afda2d8c4d818c7c1be7da7e6ff6/c.html">新华社</a><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a></div></div></article>
+        <article class="card"><div class="num">07</div><div><h3><a href="../news/2026-07-08/world-07.html">古巴再次发生全国性大停电</a></h3><p>能源供应和基础设施稳定性成为外界关注点。</p><div class="sources"><a class="source" href="https://www.news.cn/photo/20260708/7c0765a0cbd940f08bce4dff184fad16/c.html">新华社</a><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a></div></div></article>
+        <article class="card"><div class="num">08</div><div><h3><a href="../news/2026-07-08/world-08.html">俄乌冲突持续，基辅方向遇袭</a></h3><p>袭击与反击消息交织，冲突态势仍处高压状态。</p><div class="sources"><a class="source" href="https://www.theguardian.com/world/2026/jul/08/ukraine-war-briefing-kyiv-targets-kremlin-shadow-tankers-as-russian-strikes-continue-in-capital">The Guardian</a><a class="source" href="https://www.aljazeera.com/news/">Al Jazeera</a></div></div></article>
+        <article class="card"><div class="num">09</div><div><h3><a href="../news/2026-07-08/world-09.html">阿根廷逆转埃及晋级八强引发骚乱</a></h3><p>赛事结果、判罚争议与球迷冲突叠加发酵。</p><div class="sources"><a class="source" href="https://apnews.com/article/argentina-egypt-world-cup-score-5129f0693b78e1ca7efeee87c46cc4cb">AP</a><a class="source" href="https://www.news.cn/world/20260708/9b4e350e1318401a8c0eb2963c35c74c/c.html">新华社</a></div></div></article>
+        <article class="card"><div class="num">10</div><div><h3><a href="../news/2026-07-08/world-10.html">AI概念股下跌拖累全球市场</a></h3><p>科技股波动与地缘风险共同影响市场情绪。</p><div class="sources"><a class="source" href="https://apnews.com/article/e0194864aba4379a069ce31becae2558">AP</a></div></div></article>
+      </div>
+    </section>
+
+    <section class="section buzz" id="buzz">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Trending</div>
+          <h2>全网热议 10 条</h2>
+          <p class="section-note">合并公开热榜和讨论强度，既看“哪里热”，也看“为什么讨论激烈”。这部分代表传播热度，不等同于事实重要性。</p>
+        </div>
+        <span class="pill">热榜 + 讨论焦点</span>
+      </div>
+      <div class="news-grid">
+        <article class="card"><div class="num">01</div><div><h3><a href="../news/2026-07-08/buzz-01.html">广西抗洪救援与求助信息</a></h3><p>抖音、今日头条、快手持续高热；讨论集中在救援进展、求助专区、解放军和多方力量驰援。</p><div class="sources"><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a><a class="source" href="https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc">今日头条</a><a class="source" href="https://www.kuaishou.com/?isHome=1">快手</a></div></div></article>
+        <article class="card"><div class="num">02</div><div><h3><a href="../news/2026-07-08/buzz-02.html">台风“巴威”逼近与多地防范</a></h3><p>台风警戒、浙江迎战、强度变化不断上榜；讨论焦点是路径、影响范围和地方防御。</p><div class="sources"><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a><a class="source" href="https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc">今日头条</a><a class="source" href="https://www.kuaishou.com/?isHome=1">快手</a></div></div></article>
+        <article class="card"><div class="num">03</div><div><h3><a href="../news/2026-07-08/buzz-03.html">甘肃陇南滑坡21人遇难</a></h3><p>灾害信息在短视频平台传播；公众关注搜救结束、山区地质灾害预警和灾后安置。</p><div class="sources"><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a><a class="source" href="https://www.kuaishou.com/?isHome=1">快手</a><a class="source" href="https://www.news.cn/local/20260708/34a9c4c08f9b40f5b61367e7305b48f3/c.html">新华社</a></div></div></article>
+        <article class="card"><div class="num">04</div><div><h3><a href="../news/2026-07-08/buzz-04.html">广西涉灾谣言与辟谣</a></h3><p>“洪水冲下很多尸体”不实等辟谣内容传播较广；讨论集中在灾情真假、信息核验和平台辟谣速度。</p><div class="sources"><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a></div></div></article>
+        <article class="card"><div class="num">05</div><div><h3><a href="../news/2026-07-08/buzz-05.html">国家最高科技奖揭晓</a></h3><p>百度热搜、抖音均有关注；陈立泉、贲德获奖带动科学家、锂电池产业和科技自立讨论。</p><div class="sources"><a class="source" href="https://top.baidu.com/board?tab=realtime">百度热搜</a><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a><a class="source" href="https://www.news.cn/20260708/4fb52570e8954cd8a50227a2bea1e02f/c.html">新华社</a></div></div></article>
+        <article class="card"><div class="num">06</div><div><h3><a href="../news/2026-07-08/buzz-06.html">世界杯阿根廷对埃及判罚争议</a></h3><p>体育话题在热榜和评论区发酵；埃及足协申诉、判罚争议和球迷冲突共同推高热度。</p><div class="sources"><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a><a class="source" href="https://top.baidu.com/board?tab=realtime">百度热搜</a><a class="source" href="https://apnews.com/article/argentina-egypt-world-cup-score-5129f0693b78e1ca7efeee87c46cc4cb">AP</a></div></div></article>
+        <article class="card"><div class="num">07</div><div><h3><a href="../news/2026-07-08/buzz-07.html">中方向日方提出严正交涉</a></h3><p>外交与地区安全议题高位上榜；讨论焦点集中在事件背景、措辞强度和后续回应。</p><div class="sources"><a class="source" href="https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc">今日头条</a></div></div></article>
+        <article class="card"><div class="num">08</div><div><h3><a href="../news/2026-07-08/buzz-08.html">强降雨、雷暴大风和防汛形势</a></h3><p>百度热搜和今日头条持续出现相关话题；多地强对流、河流超警和防汛难度形成公共安全关注。</p><div class="sources"><a class="source" href="https://top.baidu.com/board?tab=realtime">百度热搜</a><a class="source" href="https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc">今日头条</a></div></div></article>
+        <article class="card"><div class="num">09</div><div><h3><a href="../news/2026-07-08/buzz-09.html">美伊冲突相关话题再升温</a></h3><p>中东局势、油价影响和军事风险成为跨平台关注点；讨论从国际安全延伸到能源价格。</p><div class="sources"><a class="source" href="https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/">抖音</a><a class="source" href="https://www.kuaishou.com/?isHome=1">快手</a><a class="source" href="https://apnews.com/article/e0194864aba4379a069ce31becae2558">AP</a></div></div></article>
+        <article class="card"><div class="num">10</div><div><h3><a href="../news/2026-07-08/buzz-10.html">A股市场超3700只个股下跌</a></h3><p>财经类讨论在今日头条升温；投资者关注市场情绪、板块轮动和信心修复。</p><div class="sources"><a class="source" href="https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc">今日头条</a><a class="source" href="https://www.cls.cn/telegraph">财联社</a></div></div></article>
+      </div>
+    </section>
+
+    <section class="section tech" id="tech">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Technology</div>
+          <h2>科技圈热点新闻 10 条</h2>
+          <p class="section-note">来自 IT之家、钛媒体、财联社和平台科技话题，覆盖 AI、智能车、芯片、社交产品和硬件供应链。</p>
+        </div>
+        <span class="pill">科技商业</span>
+      </div>
+      <div class="news-grid">
+        <article class="card"><div class="num">01</div><div><h3><a href="../news/2026-07-08/tech-01.html">消息称 DeepSeek 正在自研 AI 芯片</a></h3><p>面向推理场景，意在减少对外部算力方案依赖。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/810.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">02</div><div><h3><a href="../news/2026-07-08/tech-02.html">前华为“天才少年”李博杰与 DeepSeek 面试争议发酵</a></h3><p>话题从面试体验延伸到创业、投资和契约精神。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/883.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">03</div><div><h3><a href="../news/2026-07-08/tech-03.html">小米汽车 SkyNomad 中文名“小米澎程”曝光</a></h3><p>多平台官方账号上线，市场猜测其与小米增程 SUV 有关。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/836.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">04</div><div><h3><a href="../news/2026-07-08/tech-04.html">雷军回应小米汽车 SkyNomad 上市时间</a></h3><p>“快了”的回应继续推高小米汽车新车型关注度。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/974/060.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">05</div><div><h3><a href="../news/2026-07-08/tech-05.html">微信员工回应“临时好友功能”热搜</a></h3><p>用户对社交边界、隐私便利性和文件收发场景讨论升温。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/796.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">06</div><div><h3><a href="../news/2026-07-08/tech-06.html">华为乾崑智驾里程数断网后仍滚动引热议</a></h3><p>官方称展示数据做了平滑处理，智能驾驶数据透明度受关注。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/803.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">07</div><div><h3><a href="../news/2026-07-08/tech-07.html">小米调整“小爱同学”组织架构</a></h3><p>消息称罗福莉 MiMo 团队负责基础模型能力，端侧 AI 助手继续升温。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/492.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">08</div><div><h3><a href="../news/2026-07-08/tech-08.html">中国部分 AI 大模型被称比美国便宜 60%-90%</a></h3><p>性价比优势推动中国模型在美国企业端应用扩大。</p><div class="sources"><a class="source" href="https://www.tmtpost.com/">钛媒体</a></div></div></article>
+        <article class="card"><div class="num">09</div><div><h3><a href="../news/2026-07-08/tech-09.html">威刚预警 Q3 内存、闪存将大幅涨价</a></h3><p>内存预计涨20%-30%，闪存预计涨35%-40%，影响多类终端成本。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/683.htm">IT之家</a></div></div></article>
+        <article class="card"><div class="num">10</div><div><h3><a href="../news/2026-07-08/tech-10.html">SpaceX 申请部署最多 10 万颗卫星</a></h3><p>卫星互联网被视为 AI 时代太空通信底座的重要方向。</p><div class="sources"><a class="source" href="https://www.ithome.com/0/973/891.htm">IT之家</a></div></div></article>
+      </div>
+    </section>
+
+    <section class="section finance" id="finance">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Markets</div>
+          <h2>财经投资者速览 10 条</h2>
+          <p class="section-note">为投资者提炼今天的市场变量：股市情绪、港股科技、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。</p>
+        </div>
+        <span class="pill">投资者关注</span>
+      </div>
+      <div class="news-grid">
+        <article class="card"><div class="num">01</div><div><h3><a href="../news/2026-07-08/finance-01.html">A股市场情绪偏弱</a></h3><p>“全市场超3700只个股下跌”进入热榜，关注风险偏好、成交量和后续政策预期能否修复。</p><div class="sources"><a class="source" href="https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc">今日头条</a><a class="source" href="https://www.cls.cn/telegraph">财联社</a></div></div></article>
+        <article class="card"><div class="num">02</div><div><h3><a href="../news/2026-07-08/finance-02.html">港股科技股显著走强</a></h3><p>恒指涨2.99%，恒生科技指数涨4.97%；阿里巴巴涨超12%，互联网龙头估值修复成为重点观察线。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://www.tmtpost.com/">钛媒体</a></div></div></article>
+        <article class="card"><div class="num">03</div><div><h3><a href="../news/2026-07-08/finance-03.html">国际油价快速拉升</a></h3><p>WTI涨超6%、布伦特涨近6%，能源股、通胀预期、航空和化工成本都可能受到牵动。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://apnews.com/article/e0194864aba4379a069ce31becae2558">AP</a></div></div></article>
+        <article class="card"><div class="num">04</div><div><h3><a href="../news/2026-07-08/finance-04.html">美股股指期货跳水</a></h3><p>纳指期货、道指期货跌超1%，外盘风险偏好转弱，可能影响A股和港股次日开盘情绪。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://apnews.com/article/e0194864aba4379a069ce31becae2558">AP</a></div></div></article>
+        <article class="card"><div class="num">05</div><div><h3><a href="../news/2026-07-08/finance-05.html">美股油气板块盘前普涨</a></h3><p>埃克森美孚涨超2%，油价上行推动能源股受益，但也需要警惕需求端和地缘风险反复。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://www.tmtpost.com/">钛媒体</a></div></div></article>
+        <article class="card"><div class="num">06</div><div><h3><a href="../news/2026-07-08/finance-06.html">存储芯片链条回调加剧</a></h3><p>美光、闪迪、西部数据、希捷盘前走弱，全球存储三巨头自高点回落超20%，半导体存储进入再定价阶段。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://www.ithome.com/">IT之家</a></div></div></article>
+        <article class="card"><div class="num">07</div><div><h3><a href="../news/2026-07-08/finance-07.html">6月乘用车出口同比大增</a></h3><p>乘联分会数据显示，6月乘用车出口同比增长82.3%，新能源车占出口总量56.9%，汽车产业链出海仍是长线变量。</p><div class="sources"><a class="source" href="https://www.cpcaauto.com/">乘联分会</a><a class="source" href="https://www.cls.cn/telegraph">财联社</a></div></div></article>
+        <article class="card"><div class="num">08</div><div><h3><a href="../news/2026-07-08/finance-08.html">券商另类子公司加码科创直投</a></h3><p>50余家券商另类子公司近三年直投科创企业超200亿元，硬科技、专精特新和耐心资本值得跟踪。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://www.tmtpost.com/">钛媒体</a></div></div></article>
+        <article class="card"><div class="num">09</div><div><h3><a href="../news/2026-07-08/finance-09.html">贵金属价格出现回落</a></h3><p>现货黄金跌约1%，现货白银下破59美元；避险资产波动加大，需结合美元、利率和地缘风险观察。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://www.tmtpost.com/">钛媒体</a></div></div></article>
+        <article class="card"><div class="num">10</div><div><h3><a href="../news/2026-07-08/finance-10.html">人民币与亚洲汇率波动受关注</a></h3><p>在岸人民币兑美元收报6.7993，韩元受SK海力士ADR资金流影响走强，跨境资金和出口链汇率敏感度需要留意。</p><div class="sources"><a class="source" href="https://www.cls.cn/telegraph">财联社</a><a class="source" href="https://www.tmtpost.com/">钛媒体</a></div></div></article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>注：全网热议板块反映公开平台热度和讨论强度，不等同于事实重要性；财经内容仅作信息梳理，不构成投资建议；涉灾、市场和国际冲突信息建议继续关注权威更新。</p>
+    </footer>
+  </main>
+  <script>
+    async function copyShareText() {
+      const text = document.getElementById("shareText").innerText;
+      const button = document.querySelector(".copy-button");
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = "已复制";
+        window.setTimeout(() => {
+          button.textContent = "复制微信版";
+        }, 1600);
+      } catch (error) {
+        button.textContent = "请手动复制";
+      }
+    }
+  </script>
+</body>
+</html>

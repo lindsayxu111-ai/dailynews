@@ -4,7 +4,7 @@
 
 ## 已经准备好的文件
 
-- `.github/workflows/daily-pages.yml`：每天北京时间 08:00 自动构建并发布。
+- `.github/workflows/daily-pages.yml`：push 到 `main` 时自动发布，也会每天北京时间 08:00 自动构建并发布。
 - `scripts/prepare-pages-artifact.js`：只把公开网页文件打包到 `_site`，不发布脚本、候选新闻和日志。
 - `scripts/collect-candidates.js`：云端构建时自动采集候选新闻和天气。
 - `scripts/run-daily-pipeline.js`：云端构建时生成当天日报。
@@ -19,9 +19,13 @@
 
 ## 每天自动更新逻辑
 
-工作流每天 `00:00 UTC` 运行，也就是北京时间 `08:00`。
+工作流有三种触发方式：
 
-运行顺序：
+- 你 push 到 `main` 后自动运行。
+- 每天 `00:00 UTC` 自动运行，也就是北京时间 `08:00`。
+- 在 GitHub Actions 页面手动点击 `Run workflow` 运行。
+
+运行顺序都一样：
 
 ```text
 抓取公开 RSS/API 与天气

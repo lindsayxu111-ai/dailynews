@@ -1,6 +1,9 @@
 name: Daily Headlines Pages
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # 08:00 Asia/Shanghai is 00:00 UTC.
     - cron: "0 0 * * *"

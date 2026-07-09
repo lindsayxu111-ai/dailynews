@@ -1455,9 +1455,50 @@
       updateShareWeatherLine(weather);
     }
 
+    function getIssueDate() {
+      return document.querySelector(".cover-date")?.getAttribute("datetime") || new Date().toISOString().slice(0, 10);
+    }
+
+    function getWeatherCacheKey() {
+      return `dailynews.localWeather.${getIssueDate()}`;
+    }
+
+    function readWeatherCache() {
+      try {
+        const cached = JSON.parse(localStorage.getItem(getWeatherCacheKey()) || "null");
+        if (!cached || cached.date !== getIssueDate()) return null;
+        if (cached.status === "failed") return { failed: true };
+        if (!cached.weather) return null;
+        return cached.weather;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function writeWeatherCache(status, weather = null) {
+      try {
+        localStorage.setItem(getWeatherCacheKey(), JSON.stringify({
+          date: getIssueDate(),
+          status,
+          weather,
+          savedAt: new Date().toISOString()
+        }));
+      } catch (error) {
+        // Storage can be disabled in private browsing; in that case the page still works.
+      }
+    }
+
     async function loadReaderWeather() {
       const coverWeather = document.querySelector(".cover-weather");
+      const cachedWeather = readWeatherCache();
+      if (cachedWeather?.failed) return;
+      if (cachedWeather) {
+        updateLocalWeather(cachedWeather);
+        return;
+      }
+
       try {
+        writeWeatherCache("failed");
         coverWeather?.classList.add("local-loading");
         const position = await getLocalPosition();
         const params = new URLSearchParams({
@@ -1470,13 +1511,15 @@
         if (!response.ok) throw new Error("weather request failed");
         const data = await response.json();
         const current = data.current || {};
-        updateLocalWeather({
+        const weather = {
           condition: weatherCodeToText(Number(current.weather_code)),
           temperatureC: Math.round(Number(current.temperature_2m)),
           feelsLikeC: Math.round(Number(current.apparent_temperature)),
           humidity: `${Math.round(Number(current.relative_humidity_2m))}%`,
           wind: `${Math.round(Number(current.wind_speed_10m))} km/h`
-        });
+        };
+        writeWeatherCache("success", weather);
+        updateLocalWeather(weather);
       } catch (error) {
         coverWeather?.classList.remove("local-loading");
       }

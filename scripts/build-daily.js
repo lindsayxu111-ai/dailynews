@@ -54,6 +54,25 @@ function detailHref(item, prefix = "") {
   return `${prefix}news/${issue.date}/${item.id}.html`;
 }
 
+function detailSummaryFor(section, item) {
+  const explicit = cleanText(item.detailSummary || item.longSummary || "");
+  if (explicit) return explicit;
+
+  const summary = cleanText(item.summary);
+  const title = cleanText(item.title);
+  const sourceNames = [...new Set((item.sources || []).map((source) => cleanText(source.name)).filter(Boolean))];
+  const sourceText = sourceNames.length ? `页面下方保留了${sourceNames.slice(0, 3).join("、")}等原出处，` : "页面下方保留了原出处，";
+  const focusText = {
+    official: "可以重点看发布主体、涉及的政策或公共事务安排，以及后续可能影响到的人群和地区。",
+    world: "可以重点看事件发生地、相关国家或机构的最新表态，以及它对地区安全、外交关系或全球市场情绪的影响。",
+    buzz: "可以重点看话题为什么被大量讨论、争议集中在哪里，以及哪些信息还需要继续核验。",
+    tech: "可以重点看产品、公司或技术变化本身，以及它对 AI、硬件、平台或智能汽车产业链的后续影响。",
+    finance: "可以重点看它影响的是哪类资产、哪个行业或哪条产业链，并结合市场情绪继续观察后续变化。"
+  }[section.id] || "可以重点看事件主体、最新进展和后续变化。";
+
+  return `${summary} 这条新闻围绕“${title}”展开，核心是帮助读者快速弄清事件本身、当前进展和需要继续关注的方向。${sourceText}适合继续查看完整报道。${focusText}`;
+}
+
 function renderDetail(section, item) {
   const sourceLinks = item.sources
     .map((source) => `<a class="source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeText(source.name)}</a>`)
@@ -61,6 +80,7 @@ function renderDetail(section, item) {
   const tagLinks = (item.tags || [])
     .map((tag) => `<span>${escapeText(tag)}</span>`)
     .join("");
+  const detailSummary = detailSummaryFor(section, item);
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -100,7 +120,7 @@ function renderDetail(section, item) {
       </div>
       <div class="content">
         <h2>新闻概要</h2>
-        <p>${escapeText(item.summary)}</p>
+        <p>${escapeText(detailSummary)}</p>
         <h2>关键词</h2>
         <div class="tag-list">${tagLinks}</div>
         <h2>原出处</h2>

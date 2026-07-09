@@ -69,9 +69,11 @@ for (const section of issue.sections) {
     }
     assertCleanText(item.title, `item ${item.id} title`);
     assertCleanText(item.summary, `item ${item.id} summary`);
+    if (item.detailSummary != null) assertCleanText(item.detailSummary, `item ${item.id} detailSummary`);
     assertCleanText(item.whyItMatters, `item ${item.id} whyItMatters`);
     assertChineseDisplayText(item.title, `item ${item.id} title`, 4);
     assertChineseDisplayText(item.summary, `item ${item.id} summary`);
+    if (item.detailSummary != null) assertChineseDisplayText(item.detailSummary, `item ${item.id} detailSummary`);
     for (const tag of item.tags || []) assertCleanText(tag, `item ${item.id} tag`);
     for (const source of item.sources) {
       if (!source.name || !source.url) throw new Error(`Item ${item.id} has invalid source`);

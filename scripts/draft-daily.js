@@ -98,11 +98,13 @@ const sections = config.sections.map((sectionConfig) => {
       throw new Error(`Section ${sectionConfig.id} item ${rank} needs at least one source`);
     }
 
+    const detailSummary = cleanText(item.detailSummary || item.longSummary || "");
     return {
       id: `${sectionConfig.id}-${String(rank).padStart(2, "0")}`,
       rank,
       title: cleanText(item.title),
       summary: cleanText(item.summary),
+      ...(detailSummary ? { detailSummary } : {}),
       whyItMatters: whyItMatters(sectionConfig, item, rank),
       tags: normalizeTags(sectionConfig, item, rank),
       sources: item.sources.map((source) => normalizeSource(source, sectionConfig.sourceType))

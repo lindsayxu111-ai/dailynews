@@ -18,6 +18,7 @@ const candidate = {
     items: section.items.map((item) => ({
       title: item.title,
       summary: item.summary,
+      ...(item.detailSummary ? { detailSummary: item.detailSummary } : {}),
       whyItMatters: item.whyItMatters,
       tags: item.tags,
       sources: item.sources

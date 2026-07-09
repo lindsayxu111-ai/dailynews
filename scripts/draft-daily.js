@@ -16,16 +16,24 @@ function getNowForIssue(date) {
   return `${date}T07:55:00+08:00`;
 }
 
+function cleanText(value) {
+  return String(value || "")
+    .replace(/&(?:amp;)?nbsp;|&#160;|&#x0*a0;/gi, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function normalizeSource(source, fallbackType) {
   return {
-    name: source.name,
+    name: cleanText(source.name),
     url: source.url,
     type: source.type || fallbackType
   };
 }
 
 function whyItMatters(section, item, rank) {
-  if (item.whyItMatters) return item.whyItMatters;
+  if (item.whyItMatters) return cleanText(item.whyItMatters);
 
   const base = {
     official: "这条信息来自官方或权威渠道，关系到政策方向、公共事务或民生安排，适合作为当天国内判断的基础。",
@@ -46,7 +54,7 @@ function normalizeTags(section, item, rank) {
     tech: ["科技", "产业"],
     finance: ["财经", "投资者关注"]
   }[section.id] || ["精选"];
-  const tags = [...new Set([...(item.tags || base), ...(rank === 1 ? ["必看"] : [])])];
+  const tags = [...new Set([...(item.tags || base), ...(rank === 1 ? ["必看"] : [])].map(cleanText).filter(Boolean))];
   return tags;
 }
 
@@ -93,8 +101,8 @@ const sections = config.sections.map((sectionConfig) => {
     return {
       id: `${sectionConfig.id}-${String(rank).padStart(2, "0")}`,
       rank,
-      title: item.title,
-      summary: item.summary,
+      title: cleanText(item.title),
+      summary: cleanText(item.summary),
       whyItMatters: whyItMatters(sectionConfig, item, rank),
       tags: normalizeTags(sectionConfig, item, rank),
       sources: item.sources.map((source) => normalizeSource(source, sectionConfig.sourceType))

@@ -14,6 +14,18 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function cleanText(value) {
+  return String(value || "")
+    .replace(/&(?:amp;)?nbsp;|&#160;|&#x0*a0;/gi, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function escapeText(value) {
+  return escapeHtml(cleanText(value));
+}
+
 function formatChineseDate(date) {
   const [year, month, day] = date.split("-").map(Number);
   return `${year}年${month}月${day}日`;
@@ -44,10 +56,10 @@ function detailHref(item, prefix = "") {
 
 function renderDetail(section, item) {
   const sourceLinks = item.sources
-    .map((source) => `<a class="source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>`)
+    .map((source) => `<a class="source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeText(source.name)}</a>`)
     .join("");
   const tagLinks = (item.tags || [])
-    .map((tag) => `<span>${escapeHtml(tag)}</span>`)
+    .map((tag) => `<span>${escapeText(tag)}</span>`)
     .join("");
 
   return `<!doctype html>
@@ -55,7 +67,7 @@ function renderDetail(section, item) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(item.title)} | ${brandName}</title>
+  <title>${escapeText(item.title)} | ${brandName}</title>
   <style>
     :root { --paper: #eaf4fb; --surface: #ffffff; --ink: #10233d; --muted: #5e7188; --line: #c9dced; --accent: #2d8fce; --orange: #e47f52; --green: #7ec7b5; --yellow: #f4c95d; }
     * { box-sizing: border-box; }
@@ -82,13 +94,13 @@ function renderDetail(section, item) {
     <a class="back" href="../../index.html#${escapeHtml(section.id)}">返回当日十条</a>
     <article>
       <div class="hero">
-        <div class="meta">${escapeHtml(section.title)} · 第 ${item.rank} 条 · ${formatChineseDate(issue.date)}</div>
-        <h1>${escapeHtml(item.title)}</h1>
-        <p class="summary">${escapeHtml(item.summary)}</p>
+        <div class="meta">${escapeText(section.title)} · 第 ${item.rank} 条 · ${formatChineseDate(issue.date)}</div>
+        <h1>${escapeText(item.title)}</h1>
+        <p class="summary">${escapeText(item.summary)}</p>
       </div>
       <div class="content">
-        <h2>为什么重要</h2>
-        <p>${escapeHtml(item.whyItMatters)}</p>
+        <h2>新闻概要</h2>
+        <p>${escapeText(item.summary)}</p>
         <h2>关键词</h2>
         <div class="tag-list">${tagLinks}</div>
         <h2>原出处</h2>
@@ -125,8 +137,8 @@ function renderShareText() {
 
   issue.sections.forEach((section, index) => {
     const first = section.items[0];
-    const title = section.title.replace(/\s*10\s*条$/, "");
-    if (first) lines.push(`${index + 1}. ${title}：${first.summary}`);
+    const title = cleanText(section.title).replace(/\s*10\s*条$/, "");
+    if (first) lines.push(`${index + 1}. ${title}：${cleanText(first.summary)}`);
   });
 
   lines.push("");
@@ -145,19 +157,19 @@ function renderSection(section, prefix = "") {
 
   const cards = section.items.map((item) => {
     const sources = item.sources.map((source) => (
-      `<a class="source" href="${escapeHtml(source.url)}">${escapeHtml(source.name)}</a>`
+      `<a class="source" href="${escapeHtml(source.url)}">${escapeText(source.name)}</a>`
     )).join("");
-    return `        <article class="card"><div class="num">${String(item.rank).padStart(2, "0")}</div><div><h3><a href="${detailHref(item, prefix)}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.summary)}</p><div class="sources">${sources}</div></div></article>`;
+    return `        <article class="card"><div class="num">${String(item.rank).padStart(2, "0")}</div><div><h3><a href="${detailHref(item, prefix)}">${escapeText(item.title)}</a></h3><p>${escapeText(item.summary)}</p><div class="sources">${sources}</div></div></article>`;
   }).join("\n");
 
   return `    <section class="section ${escapeHtml(section.className || section.id)}" id="${escapeHtml(section.id)}">
       <div class="section-head">
         <div>
-          <div class="section-kicker">${escapeHtml(section.kicker || section.id)}</div>
-          <h2>${escapeHtml(section.title)}</h2>
-          <p class="section-note">${escapeHtml(section.note || "")}</p>
+          <div class="section-kicker">${escapeText(section.kicker || section.id)}</div>
+          <h2>${escapeText(section.title)}</h2>
+          <p class="section-note">${escapeText(section.note || "")}</p>
         </div>
-        <span class="pill">${escapeHtml(pillText)}</span>
+        <span class="pill">${escapeText(pillText)}</span>
       </div>
       <div class="news-grid">
 ${cards}
@@ -180,8 +192,8 @@ function replaceDynamicContent(html, prefix = "") {
   next = next.replace(/欢迎来到(?:每日头条|每日十条)/g, `欢迎来到${brandName}`);
   next = next.replace(/<time class="cover-date" datetime="[^"]+">[\s\S]*?<\/time>/, `<time class="cover-date" datetime="${issue.date}"><span class="cover-year">${year}年</span><span class="cover-month-day">${month}月${day}日</span></time>`);
   next = next.replace(/<div class="cover-day">[\s\S]*?<\/div>/, `<div class="cover-day">${formatWeekday(issue.date)} · 每日 08:00 更新</div>`);
-  next = next.replace(/<div class="cover-temp">[\s\S]*?<\/div>/, `<div class="cover-temp">\n              <strong>${weather.temperatureC}°C</strong>\n              <span>${escapeHtml(weather.condition)}</span>\n            </div>`);
-  next = next.replace(/<div class="cover-weather-grid" aria-label="天气细节">[\s\S]*?<\/div>\s*<div class="weather-illustration"/, `<div class="cover-weather-grid" aria-label="天气细节">\n            <div class="cover-weather-item"><span>Feels Like</span>体感 ${weather.feelsLikeC}°C</div>\n            <div class="cover-weather-item"><span>Humidity</span>湿度 ${escapeHtml(weather.humidity)}</div>\n            <div class="cover-weather-item"><span>Wind</span>${escapeHtml(weather.wind)}</div>\n          </div>\n          <div class="weather-illustration"`);
+  next = next.replace(/<div class="cover-temp">[\s\S]*?<\/div>/, `<div class="cover-temp">\n              <strong>${weather.temperatureC}°C</strong>\n              <span>${escapeText(weather.condition)}</span>\n            </div>`);
+  next = next.replace(/<div class="cover-weather-grid" aria-label="天气细节">[\s\S]*?<\/div>\s*<div class="weather-illustration"/, `<div class="cover-weather-grid" aria-label="天气细节">\n            <div class="cover-weather-item"><span>体感温度</span>体感 ${weather.feelsLikeC}°C</div>\n            <div class="cover-weather-item"><span>空气湿度</span>湿度 ${escapeText(weather.humidity)}</div>\n            <div class="cover-weather-item"><span>风力情况</span>${escapeText(weather.wind)}</div>\n          </div>\n          <div class="weather-illustration"`);
   next = next.replace(/<div class="metric"><strong>\d+°C<\/strong><span>今日天气<\/span><\/div>/, `<div class="metric"><strong>${weather.temperatureC}°C</strong><span>今日天气</span></div>`);
   next = next.replace(/<div class="wechat-time">[\s\S]*?<\/div>/, `<div class="wechat-time">每日 08:00 更新</div>`);
   next = next.replace(/<pre class="share-text" id="shareText">[\s\S]*?<\/pre>/, `<pre class="share-text" id="shareText">${escapeHtml(renderShareText())}</pre>`);
@@ -210,7 +222,7 @@ function renderDaily(prefix = "") {
 
 function renderArchive() {
   const total = issue.sections.reduce((sum, section) => sum + section.items.length, 0);
-  const sections = issue.sections.map((section) => section.title.replace(/\s*10\s*条$/, "")).join(" / ");
+  const sections = issue.sections.map((section) => cleanText(section.title).replace(/\s*10\s*条$/, "")).join(" / ");
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -236,7 +248,7 @@ function renderArchive() {
     <a class="archive-card" href="daily/${issue.date}.html">
       <strong>${formatChineseDate(issue.date)}</strong>
       <span>${total} 条精选内容 · ${issue.sections.length} 个阅读板块 · 08:00 发布</span>
-      <span>${escapeHtml(sections)}</span>
+      <span>${escapeText(sections)}</span>
     </a>
   </main>
 </body>
@@ -247,9 +259,9 @@ function renderAdmin() {
   const rows = allItems().map(({ section, item }) => {
     const sourceCount = item.sources.length;
     return `<article class="item">
-      <div class="meta">${escapeHtml(section.title)} · ${escapeHtml(item.id)} · ${sourceCount > 1 ? "多源确认" : "单源待复核"}</div>
-      <h2>${escapeHtml(item.title)}</h2>
-      <p>${escapeHtml(item.summary)}</p>
+      <div class="meta">${escapeText(section.title)} · ${escapeHtml(item.id)} · ${sourceCount > 1 ? "多源确认" : "单源待复核"}</div>
+      <h2>${escapeText(item.title)}</h2>
+      <p>${escapeText(item.summary)}</p>
       <div class="actions"><button>标记必看</button><button class="ghost">检查来源</button></div>
     </article>`;
   }).join("\n");

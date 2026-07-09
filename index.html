@@ -1213,9 +1213,9 @@
             </div>
           </div>
           <div class="cover-weather-grid" aria-label="天气细节">
-            <div class="cover-weather-item"><span>Feels Like</span>体感 31°C</div>
-            <div class="cover-weather-item"><span>Humidity</span>湿度 63%</div>
-            <div class="cover-weather-item"><span>Wind</span>南南西风 14 km/h</div>
+            <div class="cover-weather-item"><span>体感温度</span>体感 31°C</div>
+            <div class="cover-weather-item"><span>空气湿度</span>湿度 63%</div>
+            <div class="cover-weather-item"><span>风力情况</span>南南西风 14 km/h</div>
           </div>
           <div class="weather-illustration" aria-hidden="true"></div>
         </aside>
@@ -1275,7 +1275,7 @@
     <section class="section official" id="official">
       <div class="section-head">
         <div>
-          <div class="section-kicker">Domestic</div>
+          <div class="section-kicker">国内</div>
           <h2>国内官方新闻 10 条</h2>
           <p class="section-note">以新华社、央视网、国务院英文站等可核验来源为主，偏重政策、灾害、民生和公共事务。</p>
         </div>
@@ -1298,9 +1298,9 @@
     <section class="section world" id="world">
       <div class="section-head">
         <div>
-          <div class="section-kicker">World</div>
+          <div class="section-kicker">国际</div>
           <h2>国际新闻 10 条</h2>
-          <p class="section-note">以多家国际媒体和新华社报道轮廓互证为基础，聚焦冲突、市场、灾害和重要外交事件。</p>
+          <p class="section-note">以中文可读的全球要闻源和权威媒体聚合为主，优先选择冲突、外交、灾害、关税、制裁等真正影响全球局势的新闻。</p>
         </div>
         <span class="pill">多源比对</span>
       </div>
@@ -1321,7 +1321,7 @@
     <section class="section buzz" id="buzz">
       <div class="section-head">
         <div>
-          <div class="section-kicker">Trending</div>
+          <div class="section-kicker">热议</div>
           <h2>全网热议 10 条</h2>
           <p class="section-note">合并公开热榜和讨论强度，既看“哪里热”，也看“为什么讨论激烈”。这部分代表传播热度，不等同于事实重要性。</p>
         </div>
@@ -1344,7 +1344,7 @@
     <section class="section tech" id="tech">
       <div class="section-head">
         <div>
-          <div class="section-kicker">Technology</div>
+          <div class="section-kicker">科技</div>
           <h2>科技圈热点新闻 10 条</h2>
           <p class="section-note">来自 IT之家、钛媒体、财联社和平台科技话题，覆盖 AI、智能车、芯片、社交产品和硬件供应链。</p>
         </div>
@@ -1367,9 +1367,9 @@
     <section class="section finance" id="finance">
       <div class="section-head">
         <div>
-          <div class="section-kicker">Markets</div>
+          <div class="section-kicker">财经</div>
           <h2>财经投资者速览 10 条</h2>
-          <p class="section-note">为投资者提炼今天的市场变量：股市情绪、港股科技、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。</p>
+          <p class="section-note">为投资者提炼今天的市场变量：A股、港股、美股、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。</p>
         </div>
         <span class="pill">投资者关注</span>
       </div>
@@ -1440,9 +1440,9 @@
       coverWeather?.classList.remove("local-loading");
       if (tempValue) tempValue.textContent = `${weather.temperatureC}°C`;
       if (conditionValue) conditionValue.textContent = weather.condition;
-      if (detailItems[0]) detailItems[0].innerHTML = `<span>Feels Like</span>体感 ${weather.feelsLikeC}°C`;
-      if (detailItems[1]) detailItems[1].innerHTML = `<span>Humidity</span>湿度 ${weather.humidity}`;
-      if (detailItems[2]) detailItems[2].innerHTML = `<span>Wind</span>${weather.wind}`;
+      if (detailItems[0]) detailItems[0].innerHTML = `<span>体感温度</span>体感 ${weather.feelsLikeC}°C`;
+      if (detailItems[1]) detailItems[1].innerHTML = `<span>空气湿度</span>湿度 ${weather.humidity}`;
+      if (detailItems[2]) detailItems[2].innerHTML = `<span>风力情况</span>${weather.wind}`;
       if (weatherMetric) weatherMetric.innerHTML = `<strong>${weather.temperatureC}°C</strong><span>本地天气</span>`;
       if (weatherTopline) weatherTopline.textContent = "本地天气";
       updateShareWeatherLine(weather);

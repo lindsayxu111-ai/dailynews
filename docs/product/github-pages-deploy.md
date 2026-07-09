@@ -51,9 +51,9 @@
 data/candidates/YYYY-MM-DD.json
 ```
 
-如果这个文件已经存在，采集脚本会直接跳过，使用你手动准备的版本。如果不存在，GitHub Actions 会通过 `config/source-feeds.json` 里的公开 RSS/API 源自动采集。
+如果这个文件已经存在，采集脚本会直接跳过，使用你手动准备的版本。如果不存在，GitHub Actions 会通过 `config/source-feeds.json` 里的公开 RSS/API 源自动采集，并按“当天 Top 10”规则筛选：北京时间 08:00 版时间窗口、中文展示、权威来源、板块相关性和热度信号都会参与排序。
 
-如果公开源临时不可用，工作流会失败并停止发布，避免用不完整内容覆盖网站。
+如果公开源临时不可用，或某个板块不足 10 条合格的当天 Top 10 候选，工作流会失败并停止发布，避免用不完整内容或随机旧闻覆盖网站。
 
 ## 数据源配置
 
@@ -63,7 +63,7 @@ data/candidates/YYYY-MM-DD.json
 config/source-feeds.json
 ```
 
-第一版使用无需 API key 的公开源，包括 Google News RSS、China Daily、IT之家、MarketWatch、Dow Jones、Guardian、BBC 和 Open-Meteo 天气。微博、抖音、快手等平台限制更多，后续建议作为独立适配器接入。
+第一版使用无需 API key 的公开源，包括 Google News 中文 RSS、BBC中文、IT之家和 Open-Meteo 天气。英文媒体源不直接进入展示池；如需参考英文权威源，应作为热度和重要性判断信号，最终页面仍以中文呈现。微博、抖音、快手等平台限制更多，后续建议作为独立适配器接入。
 
 ## 公开页面范围
 

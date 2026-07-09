@@ -251,20 +251,8 @@ function summaryFor(sectionId, item) {
 function detailSummaryFor(sectionId, item) {
   const title = cleanTitle(item.title);
   const description = cleanDescription(item.description, title, item.sourceName);
-  if (description && description.length > 90) return description.slice(0, 260);
-
-  const shortSummary = summaryFor(sectionId, item);
-  const sourceName = cleanTitle(item.sourceName || "");
-  const sourceText = sourceName ? `原出处来自${sourceName}，` : "原出处已保留在页面下方，";
-  const focusText = {
-    official: "这条内容适合重点看发布主体、政策安排、涉及人群和后续执行口径。",
-    world: "这条内容适合重点看相关国家或机构的最新表态，以及事件对地区安全、外交关系或市场情绪的影响。",
-    buzz: "这条内容适合重点看讨论为何升温、争议集中在哪里，以及哪些信息需要继续核验。",
-    tech: "这条内容适合重点看产品、公司或技术变化本身，以及它可能影响的产业链环节。",
-    finance: "这条内容适合重点看受影响的资产、行业或产业链变量，并结合后续市场表现继续观察。"
-  }[sectionId] || "这条内容适合重点看事件主体、最新进展和后续变化。";
-
-  return `${shortSummary} 这条新闻围绕“${title}”展开，核心是帮助读者快速弄清事件本身、当前进展和需要继续关注的方向。${sourceText}可继续点击查看完整报道。${focusText}`;
+  if (!description) return "";
+  return description.length > 320 ? `${description.slice(0, 318)}...` : description;
 }
 
 function whyItMatters(sectionId) {

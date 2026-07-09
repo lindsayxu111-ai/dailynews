@@ -58,19 +58,7 @@ function detailSummaryFor(section, item) {
   const explicit = cleanText(item.detailSummary || item.longSummary || "");
   if (explicit) return explicit;
 
-  const summary = cleanText(item.summary);
-  const title = cleanText(item.title);
-  const sourceNames = [...new Set((item.sources || []).map((source) => cleanText(source.name)).filter(Boolean))];
-  const sourceText = sourceNames.length ? `页面下方保留了${sourceNames.slice(0, 3).join("、")}等原出处，` : "页面下方保留了原出处，";
-  const focusText = {
-    official: "可以重点看发布主体、涉及的政策或公共事务安排，以及后续可能影响到的人群和地区。",
-    world: "可以重点看事件发生地、相关国家或机构的最新表态，以及它对地区安全、外交关系或全球市场情绪的影响。",
-    buzz: "可以重点看话题为什么被大量讨论、争议集中在哪里，以及哪些信息还需要继续核验。",
-    tech: "可以重点看产品、公司或技术变化本身，以及它对 AI、硬件、平台或智能汽车产业链的后续影响。",
-    finance: "可以重点看它影响的是哪类资产、哪个行业或哪条产业链，并结合市场情绪继续观察后续变化。"
-  }[section.id] || "可以重点看事件主体、最新进展和后续变化。";
-
-  return `${summary} 这条新闻围绕“${title}”展开，核心是帮助读者快速弄清事件本身、当前进展和需要继续关注的方向。${sourceText}适合继续查看完整报道。${focusText}`;
+  return cleanText(item.summary);
 }
 
 function renderDetail(section, item) {
@@ -179,7 +167,8 @@ function renderSection(section, prefix = "") {
     const sources = item.sources.map((source) => (
       `<a class="source" href="${escapeHtml(source.url)}">${escapeText(source.name)}</a>`
     )).join("");
-    return `        <article class="card"><div class="num">${String(item.rank).padStart(2, "0")}</div><div><h3><a href="${detailHref(item, prefix)}">${escapeText(item.title)}</a></h3><p>${escapeText(item.summary)}</p><div class="sources">${sources}</div></div></article>`;
+    const href = detailHref(item, prefix);
+    return `        <article class="card" data-detail-href="${href}" role="link" tabindex="0" aria-label="查看：${escapeText(item.title)}"><div class="num">${String(item.rank).padStart(2, "0")}</div><div><h3><a href="${href}">${escapeText(item.title)}</a></h3><p>${escapeText(item.summary)}</p><div class="sources">${sources}</div></div></article>`;
   }).join("\n");
 
   return `    <section class="section ${escapeHtml(section.className || section.id)}" id="${escapeHtml(section.id)}">

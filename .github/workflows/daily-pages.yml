@@ -36,34 +36,48 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Resolve publish date
         shell: bash
         run: |
           if [ -n "${{ inputs.date }}" ]; then
             echo "PUBLISH_DATE=${{ inputs.date }}" >> "$GITHUB_ENV"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            TODAY="$(TZ=Asia/Shanghai date +%F)"
+            if [ -f "data/daily/$TODAY.json" ] || [ -f "data/candidates/$TODAY.json" ]; then
+              echo "PUBLISH_DATE=$TODAY" >> "$GITHUB_ENV"
+            else
+              echo "PUBLISH_SKIP=true" >> "$GITHUB_ENV"
+              echo "No committed data for $TODAY on push; skipping deploy to avoid overwriting the live daily issue with stale content."
+            fi
           else
             echo "PUBLISH_DATE=$(TZ=Asia/Shanghai date +%F)" >> "$GITHUB_ENV"
           fi
 
       - name: Collect candidates
+        if: env.PUBLISH_SKIP != 'true'
         run: node scripts/collect-candidates.js "$PUBLISH_DATE"
 
       - name: Build daily issue
+        if: env.PUBLISH_SKIP != 'true'
         run: node scripts/run-daily-pipeline.js "$PUBLISH_DATE"
 
       - name: Prepare Pages artifact
+        if: env.PUBLISH_SKIP != 'true'
         run: node scripts/prepare-pages-artifact.js
 
       - name: Configure Pages
+        if: env.PUBLISH_SKIP != 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        if: env.PUBLISH_SKIP != 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
       - name: Deploy to GitHub Pages
+        if: env.PUBLISH_SKIP != 'true'
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const html = fs.readFileSync("index.html", "utf8");
+const inputFile = process.argv[2] || "index.html";
+const html = fs.readFileSync(inputFile, "utf8");
 
 function decodeHtml(value) {
   return String(value)
@@ -19,6 +20,16 @@ function stripTags(value) {
 function getMatch(pattern, value, fallback = "") {
   const match = value.match(pattern);
   return match ? stripTags(match[1]) : fallback;
+}
+
+function getRawMatch(pattern, value, fallback = "") {
+  const match = value.match(pattern);
+  return match ? match[1] : fallback;
+}
+
+function formatChineseDate(date) {
+  const [year, month, day] = date.split("-").map(Number);
+  return `${year}年${month}月${day}日`;
 }
 
 function getWhyItMatters(sectionId, item) {
@@ -53,10 +64,21 @@ const sectionPattern = /<section class="section ([^"]+)" id="([^"]+)">([\s\S]*?)
 const sections = [];
 const sectionNotes = {
   official: "以新华社、央视网、国务院英文站等可核验来源为主，偏重政策、灾害、民生和公共事务。",
-  world: "以多家国际媒体和新华社报道轮廓互证为基础，聚焦冲突、市场、灾害和重要外交事件。",
+  world: "以中文可读的全球要闻源和权威媒体聚合为主，优先选择冲突、外交、灾害、关税、制裁等真正影响全球局势的新闻。",
   buzz: "合并公开热榜和讨论强度，既看“哪里热”，也看“为什么讨论激烈”。这部分代表传播热度，不等同于事实重要性。",
   tech: "来自 IT之家、钛媒体、财联社和平台科技话题，覆盖 AI、智能车、芯片、社交产品和硬件供应链。",
-  finance: "为投资者提炼今天的市场变量：股市情绪、港股科技、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。"
+  finance: "为投资者提炼今天的市场变量：A股、港股、美股、能源、汇率、贵金属、半导体和汽车出口。仅作信息梳理，不构成投资建议。"
+};
+
+const date = getRawMatch(/<time class="cover-date" datetime="([^"]+)"/, html, "2026-07-08");
+const weatherGrid = getRawMatch(/<div class="cover-weather-grid" aria-label="天气细节">([\s\S]*?)<\/div>\s*<div class="weather-illustration"/, html);
+const weather = {
+  label: "今日天气参考",
+  condition: getMatch(/<div class="cover-temp">[\s\S]*?<span>([\s\S]*?)<\/span>/, html, "待更新"),
+  temperatureC: Number(getRawMatch(/<div class="cover-temp">[\s\S]*?<strong>(-?\d+)°C<\/strong>/, html, "0")),
+  feelsLikeC: Number(getRawMatch(/体感\s*(-?\d+)°C/, weatherGrid, "0")),
+  humidity: getMatch(/湿度\s*([^<\n]+)/, weatherGrid, "待更新"),
+  wind: getMatch(/<div class="cover-weather-item"><span>(?:Wind|风力情况)<\/span>([\s\S]*?)<\/div>/, weatherGrid, "待更新")
 };
 
 for (const sectionMatch of html.matchAll(sectionPattern)) {
@@ -108,22 +130,15 @@ for (const sectionMatch of html.matchAll(sectionPattern)) {
 }
 
 const issue = {
-  date: "2026-07-08",
-  publishedAt: "2026-07-08T08:00:00+08:00",
-  updatedAt: "2026-07-08T16:30:00+08:00",
+  date,
+  publishedAt: `${date}T08:00:00+08:00`,
+  updatedAt: `${date}T07:50:00+08:00`,
   timezone: "Asia/Shanghai",
-  weather: {
-    label: "今日天气参考",
-    condition: "晴",
-    temperatureC: 31,
-    feelsLikeC: 31,
-    humidity: "63%",
-    wind: "南南西风 14 km/h"
-  },
+  weather,
   mustRead: sections.map((section) => `${section.id}-01`),
   sections
 };
 
 fs.mkdirSync(path.join("data", "daily"), { recursive: true });
-fs.writeFileSync("data/daily/2026-07-08.json", `${JSON.stringify(issue, null, 2)}\n`, "utf8");
-console.log(`Wrote data/daily/2026-07-08.json (${sections.reduce((sum, section) => sum + section.items.length, 0)} items)`);
+fs.writeFileSync(path.join("data", "daily", `${date}.json`), `${JSON.stringify(issue, null, 2)}\n`, "utf8");
+console.log(`Wrote data/daily/${date}.json (${sections.reduce((sum, section) => sum + section.items.length, 0)} items)`);

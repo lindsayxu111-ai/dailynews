@@ -8,6 +8,7 @@ if (!file) {
 }
 
 const issue = JSON.parse(fs.readFileSync(file, "utf8"));
+const brandName = "每日十条";
 
 function formatChineseDate(date) {
   const [year, month, day] = date.split("-").map(Number);
@@ -16,7 +17,7 @@ function formatChineseDate(date) {
 
 const weather = issue.weather;
 const lines = [
-  `【每日头条｜${formatChineseDate(issue.date)}】`,
+  `【${brandName}｜${formatChineseDate(issue.date)}】`,
   `${weather.label}：${weather.condition}，${weather.temperatureC}°C，体感${weather.feelsLikeC}°C，湿度${weather.humidity}，${weather.wind}。`,
   "今天重点看五条线：防汛救灾、国际冲突、全网热议、科技圈、财经市场。",
   ""

@@ -4,6 +4,7 @@ const path = require("path");
 const issueFile = process.argv[2] || "data/daily/2026-07-08.json";
 const issue = JSON.parse(fs.readFileSync(issueFile, "utf8"));
 const template = fs.readFileSync("index.html", "utf8");
+const brandName = "每日十条";
 
 function escapeHtml(value) {
   return String(value)
@@ -54,7 +55,7 @@ function renderDetail(section, item) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(item.title)} | 每日头条</title>
+  <title>${escapeHtml(item.title)} | ${brandName}</title>
   <style>
     :root { --paper: #eaf4fb; --surface: #ffffff; --ink: #10233d; --muted: #5e7188; --line: #c9dced; --accent: #2d8fce; --orange: #e47f52; --green: #7ec7b5; --yellow: #f4c95d; }
     * { box-sizing: border-box; }
@@ -78,7 +79,7 @@ function renderDetail(section, item) {
 </head>
 <body>
   <main>
-    <a class="back" href="../../index.html#${escapeHtml(section.id)}">返回当日头条</a>
+    <a class="back" href="../../index.html#${escapeHtml(section.id)}">返回当日十条</a>
     <article>
       <div class="hero">
         <div class="meta">${escapeHtml(section.title)} · 第 ${item.rank} 条 · ${formatChineseDate(issue.date)}</div>
@@ -116,7 +117,7 @@ function normalizeArchiveLink(html, prefix = "") {
 function renderShareText() {
   const weather = issue.weather;
   const lines = [
-    `【每日头条｜${formatChineseDate(issue.date)}】`,
+    `【${brandName}｜${formatChineseDate(issue.date)}】`,
     `${weather.label}：${weather.condition}，${weather.temperatureC}°C，体感${weather.feelsLikeC}°C，湿度${weather.humidity}，${weather.wind}。`,
     "今天重点看五条线：防汛救灾、国际冲突、全网热议、科技圈、财经市场。",
     ""
@@ -171,18 +172,18 @@ function renderSections(prefix = "") {
 function replaceDynamicContent(html, prefix = "") {
   const { year, month, day } = formatDateParts(issue.date);
   const weather = issue.weather;
-  const updatedTime = formatIssueTime(issue.updatedAt);
-
   let next = html;
-  next = next.replace(/<title>每日头条 \| .*?<\/title>/, `<title>每日头条 | ${issue.date}</title>`);
+  next = next.replace(/<title>.*? \| .*?<\/title>/, `<title>${brandName} | ${issue.date}</title>`);
   next = next.replace(/<span class="pill strong">[\s\S]*?<\/span>/, `<span class="pill strong">${formatChineseDate(issue.date)}</span>`);
-  next = next.replace(/<span class="pill">北京时间 [\s\S]*? 整理<\/span>/, `<span class="pill">北京时间 ${updatedTime} 整理</span>`);
+  next = next.replace(/<span class="pill(?: update)?">(?:北京时间 [\s\S]*? 整理|每日 08:00 更新)<\/span>/, `<span class="pill update">每日 08:00 更新</span>`);
+  next = next.replace(/<h1>[\s\S]*?<\/h1>/, `<h1>${brandName}</h1>`);
+  next = next.replace(/欢迎来到(?:每日头条|每日十条)/g, `欢迎来到${brandName}`);
   next = next.replace(/<time class="cover-date" datetime="[^"]+">[\s\S]*?<\/time>/, `<time class="cover-date" datetime="${issue.date}"><span class="cover-year">${year}年</span><span class="cover-month-day">${month}月${day}日</span></time>`);
-  next = next.replace(/<div class="cover-day">[\s\S]*?<\/div>/, `<div class="cover-day">${formatWeekday(issue.date)} · 北京时间 ${updatedTime} 整理</div>`);
+  next = next.replace(/<div class="cover-day">[\s\S]*?<\/div>/, `<div class="cover-day">${formatWeekday(issue.date)} · 每日 08:00 更新</div>`);
   next = next.replace(/<div class="cover-temp">[\s\S]*?<\/div>/, `<div class="cover-temp">\n              <strong>${weather.temperatureC}°C</strong>\n              <span>${escapeHtml(weather.condition)}</span>\n            </div>`);
   next = next.replace(/<div class="cover-weather-grid" aria-label="天气细节">[\s\S]*?<\/div>\s*<div class="weather-illustration"/, `<div class="cover-weather-grid" aria-label="天气细节">\n            <div class="cover-weather-item"><span>Feels Like</span>体感 ${weather.feelsLikeC}°C</div>\n            <div class="cover-weather-item"><span>Humidity</span>湿度 ${escapeHtml(weather.humidity)}</div>\n            <div class="cover-weather-item"><span>Wind</span>${escapeHtml(weather.wind)}</div>\n          </div>\n          <div class="weather-illustration"`);
   next = next.replace(/<div class="metric"><strong>\d+°C<\/strong><span>今日天气<\/span><\/div>/, `<div class="metric"><strong>${weather.temperatureC}°C</strong><span>今日天气</span></div>`);
-  next = next.replace(/<div class="wechat-time">[\s\S]*?<\/div>/, `<div class="wechat-time">今天 ${updatedTime}</div>`);
+  next = next.replace(/<div class="wechat-time">[\s\S]*?<\/div>/, `<div class="wechat-time">每日 08:00 更新</div>`);
   next = next.replace(/<pre class="share-text" id="shareText">[\s\S]*?<\/pre>/, `<pre class="share-text" id="shareText">${escapeHtml(renderShareText())}</pre>`);
   next = next.replace(/    <section class="section [\s\S]*?    <footer class="footer">/, `${renderSections(prefix)}\n\n    <footer class="footer">`);
   return next;
@@ -215,7 +216,7 @@ function renderArchive() {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>历史日报 | 每日头条</title>
+  <title>历史日报 | ${brandName}</title>
   <style>
     :root { --paper: #eaf4fb; --ink: #10233d; --muted: #5e7188; --line: #c9dced; --accent: #2d8fce; --orange: #e47f52; }
     * { box-sizing: border-box; }
@@ -258,7 +259,7 @@ function renderAdmin() {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>审核后台 | 每日头条</title>
+  <title>审核后台 | ${brandName}</title>
   <style>
     :root { --ink: #10233d; --muted: #5e7188; --line: #c9dced; --accent: #2d8fce; --orange: #e47f52; }
     * { box-sizing: border-box; }

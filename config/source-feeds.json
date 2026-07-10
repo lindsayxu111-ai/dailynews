@@ -13,6 +13,24 @@
       "type": "official"
     },
     {
+      "section": "official",
+      "name": "Google News 新华社国内",
+      "url": "https://news.google.com/rss/search?q=%E6%96%B0%E5%8D%8E%E7%A4%BE%20%E4%B8%AD%E5%9B%BD%20OR%20%E6%96%B0%E5%8D%8E%E7%A4%BE%20%E5%9B%BD%E5%86%85&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "official"
+    },
+    {
+      "section": "official",
+      "name": "Google News 央视新闻",
+      "url": "https://news.google.com/rss/search?q=%E5%A4%AE%E8%A7%86%E6%96%B0%E9%97%BB%20OR%20%E5%A4%AE%E8%A7%86%E7%BD%91%20%E4%B8%AD%E5%9B%BD&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "official"
+    },
+    {
+      "section": "official",
+      "name": "Google News 政策民生",
+      "url": "https://news.google.com/rss/search?q=%E5%9B%BD%E5%8A%A1%E9%99%A2%20OR%20%E6%94%BF%E7%AD%96%20OR%20%E6%B0%91%E7%94%9F%20OR%20%E9%98%B2%E6%B1%9B%20OR%20%E6%95%91%E7%81%BE&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "type": "official"
+    },
+    {
       "section": "world",
       "name": "Google News 国际头条",
       "url": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=zh-CN&gl=CN&ceid=CN:zh-Hans",

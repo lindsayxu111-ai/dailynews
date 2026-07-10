@@ -12,6 +12,7 @@ if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
 
 const candidateFile = path.join("data", "candidates", `${date}.json`);
 const collectionLogFile = path.join("logs", `collection-${date}.json`);
+const collectionRunAt = Date.now();
 if (fs.existsSync(candidateFile) && !force) {
   console.log(`Candidate file exists: ${candidateFile}`);
   process.exit(0);
@@ -118,11 +119,28 @@ function normalizeKey(title) {
     .replace(/[^\p{Script=Han}a-z0-9]+/gu, "");
 }
 
+function shanghaiDateString(timestamp = collectionRunAt) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date(timestamp));
+  const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${value.year}-${value.month}-${value.day}`;
+}
+
 function issueWindowMs() {
   const publishAt = new Date(`${date}T08:00:00+08:00`).getTime();
+  const scheduledEnd = publishAt + 30 * 60 * 1000;
+  const isToday = date === shanghaiDateString();
+  const end = isToday && collectionRunAt > scheduledEnd
+    ? collectionRunAt + 5 * 60 * 1000
+    : scheduledEnd;
+
   return {
-    start: publishAt - 24 * 60 * 60 * 1000,
-    end: publishAt + 30 * 60 * 1000
+    start: end - 24 * 60 * 60 * 1000,
+    end
   };
 }
 
@@ -287,9 +305,9 @@ function weatherCodeToText(code) {
   return "天气变化";
 }
 
-async function fetchText(url) {
+async function fetchTextOnce(url) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12000);
+  const timeout = setTimeout(() => controller.abort(), 20000);
   try {
     const response = await fetch(url, {
       signal: controller.signal,
@@ -302,6 +320,21 @@ async function fetchText(url) {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+async function fetchText(url) {
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      return await fetchTextOnce(url);
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 750));
+      }
+    }
+  }
+  throw lastError;
 }
 
 async function collectFeed(feed) {
@@ -397,6 +430,29 @@ function writeCollectionLog(feedResults, sectionCounts, status, message = "") {
   }, null, 2)}\n`, "utf8");
 }
 
+function printCollectionSummary() {
+  if (!fs.existsSync(collectionLogFile)) return;
+
+  try {
+    const log = readJson(collectionLogFile);
+    console.error(`Collection ${log.status}: ${log.message || "no message"}`);
+    for (const count of log.sectionCounts || []) {
+      console.error(
+        `Section ${count.id}: selected ${count.count}/${count.required}, source=${count.sourceItems || 0}, fresh=${count.freshItems || 0}, relevant=${count.relevantItems || 0}`
+      );
+    }
+    const failedFeeds = (log.feedResults || []).filter((result) => !result.ok);
+    if (failedFeeds.length) {
+      console.error("Failed feeds:");
+      for (const feed of failedFeeds) {
+        console.error(`- ${feed.section}/${feed.feed}: ${feed.error}`);
+      }
+    }
+  } catch (error) {
+    console.error(`Could not print collection log: ${error.message}`);
+  }
+}
+
 async function main() {
   const sourceConfig = readJson("config/source-feeds.json");
   const dailyConfig = readJson("config/daily-sources.json");
@@ -407,6 +463,7 @@ async function main() {
     .map((result) => `${result.feed}: ${result.error}`);
 
   const sectionCounts = [];
+  const sectionFailures = [];
   const sections = dailyConfig.sections.map((section) => {
     const seen = new Set();
     const sectionPool = allItems.filter((item) => item.section === section.id);
@@ -458,8 +515,7 @@ async function main() {
         .map((result) => `${result.feed}=${result.ok ? result.itemCount : result.error}`)
         .join("; ");
       const message = `Section ${section.id} needs ${section.minItems} same-day Top 10 items, selected ${items.length} from ${freshPool.length} fresh items and ${relevantPool.length} relevant Chinese-display items`;
-      writeCollectionLog(feedResults, sectionCounts, "failed", message);
-      throw new Error(`${message}. Feeds: ${sectionFeeds}`);
+      sectionFailures.push(`${message}. Feeds: ${sectionFeeds}`);
     }
 
     while (allowPlaceholders && items.length < section.minItems) {
@@ -469,10 +525,16 @@ async function main() {
     return { id: section.id, items };
   });
 
+  if (sectionFailures.length && !allowPlaceholders) {
+    const message = sectionFailures.join(" | ");
+    writeCollectionLog(feedResults, sectionCounts, "failed", message);
+    throw new Error(message);
+  }
+
   const weather = await collectWeather(sourceConfig);
   const candidate = {
     date,
-    collectedAt: `${date}T07:50:00+08:00`,
+    collectedAt: new Date(collectionRunAt).toISOString(),
     weather,
     sections
   };
@@ -490,6 +552,7 @@ async function main() {
 }
 
 main().catch((error) => {
+  printCollectionSummary();
   console.error(error.message);
   process.exit(1);
 });

@@ -5,8 +5,12 @@ on:
     branches:
       - main
   schedule:
-    # 08:00 Asia/Shanghai is 00:00 UTC.
+    # 08:00 Asia/Shanghai is 00:00 UTC. The later runs are automatic retries
+    # for upstream RSS/network hiccups; successful runs reuse the same date.
     - cron: "0 0 * * *"
+    - cron: "30 0 * * *"
+    - cron: "0 1 * * *"
+    - cron: "0 2 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -81,3 +85,11 @@ jobs:
         if: env.PUBLISH_SKIP != 'true'
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Send PushPlus WeChat reminder
+        if: env.PUBLISH_SKIP != 'true'
+        run: node scripts/send-pushplus.js "data/daily/$PUBLISH_DATE.json"
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          PUSHPLUS_TOPIC: ${{ secrets.PUSHPLUS_TOPIC || vars.PUSHPLUS_TOPIC }}
+          PUBLISH_BASE_URL: ${{ steps.deployment.outputs.page_url }}
